@@ -1,0 +1,500 @@
+.mcb-section.bg-cover, .mcb-wrap.bg-cover, .column_attr.bg-cover {
+    background-size: cover;
+}
+
+.section {
+    position: relative;
+}
+
+.section_wrapper, .container {
+
+    margin: 0 auto;
+    position: relative;
+}
+
+.one-third.mcb-wrap {
+    width: 33.333%;
+}
+
+.three-fifth.mcb-wrap {
+    width: 60%;
+}
+.clearfix:before, .clearfix:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix:before, .clearfix:after {
+    content: '\0020';
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.one.column {
+    width: 98%;
+}
+
+.column, .columns {
+    float: left;
+    margin: 0 1% 40px;
+}
+
+.clearfix {
+    zoom: 1;
+}
+.mcb-wrap {
+    
+    position: relative;
+    z-index: 1;
+    box-sizing: border-box;
+}
+
+
+hr.no_line {
+    background: none;
+    color: transparent;
+}
+
+hr {
+    display: block;
+    border: none;
+    outline: none;
+    height: 1px;
+    width: 100%;
+    margin: 0 auto 15px;
+    clear: both;
+}
+
+.big {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 700;
+    letter-spacing: 0px;
+}
+
+p {
+    margin: 0 0 15px;
+}
+
+hr.no_line {
+    background: none;
+    color: transparent;
+}
+
+a, a:visited, a:focus {
+    text-decoration: none;
+    outline: 0;
+}
+
+a {
+    color: #0095eb;
+}
+
+img.scale-with-grid, #Content img {
+    max-width: 100%;
+    height: auto;
+}
+
+.one.column {
+    width: 98%;
+}
+
+.column, .columns {
+    float: left;
+    margin: 0 1% 40px;
+}
+
+h5 {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 700;
+    letter-spacing: 0px;
+}
+
+div.wpcf7 {
+    margin: 0;
+    padding: 0;
+}
+
+div.wpcf7 .screen-reader-response {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(1px,1px,1px,1px);
+    height: 1px;
+    width: 1px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+
+form, fieldset {
+    margin-bottom: 0;
+}
+
+
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+.one.column {
+    width: 98%;
+}
+
+.wpcf7-form .column {
+    margin-bottom: 10px;
+}
+.column, .columns {
+    float: left;
+    margin: 0 1% 40px;
+}
+
+label, legend {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+span.wpcf7-form-control-wrap {
+    width: 100%;
+    position: relative!important;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+span.wpcf7-form-control-wrap .wpcf7-date, span.wpcf7-form-control-wrap .wpcf7-quiz, span.wpcf7-form-control-wrap .wpcf7-number, span.wpcf7-form-control-wrap .wpcf7-select, span.wpcf7-form-control-wrap .wpcf7-text, span.wpcf7-form-control-wrap .wpcf7-textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty {
+    border-width: 0;
+    box-shadow: unset;
+    resize: none;
+}
+body, button, span.date_label, .timeline_items li h3 span, input[type="submit"], input[type="reset"], input[type="button"], input[type="text"], input[type="password"], input[type="tel"], input[type="email"], textarea, select, .offer_li .title h3 {
+    font-family: "Montserrat Alternates", Arial, Tahoma, sans-serif;
+}
+input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty, .dark input[type="email"], .dark input[type="password"], .dark input[type="tel"], .dark input[type="text"], .dark select, .dark textarea {
+    color: #7652da;
+    background-color: rgba(255,255,255,1);
+    border-color: #EBEBEB;
+}
+input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty {
+    background-color: #fff;
+    color: #626262;
+    box-shadow: inset 0 0 2px 2px rgba(0,0,0,0.02);
+}
+.idea_box, .ui-tabs, .accordion .question, .accordion .question.active .title, .accordion .question .title:before, .ui-tabs .ui-tabs-nav, .ui-tabs .ui-tabs-nav li, .tabs_vertical.ui-tabs .ui-tabs-panel, table th, table td, .list_item .circle, input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .promo_box.has_border:after, dl > dt, dl > dd, .article_box .desc_wrapper p, a.icon_bar, a.content_link, .how_it_works .image, .opening_hours, .opening_hours .opening_hours_wrapper li, .icon_box.has_border:after, .chart_box:before, .pricing-box, .team_list .bq_wrapper, .post-footer .post-links, .format-link .post-title .icon-link, .share_wrapper, .post-header .title_wrapper, .section-post-related .section-related-adjustment, #comments > :first-child, .widget-area, .widget:after, .fixed-nav .desc h6, .portfolio_group.list .portfolio-item, .portfolio_group .portfolio-item .desc .details-wrapper, .Recent_posts ul li .desc h6, .widget_recent_entries ul li a, .woocommerce .widget_best_sellers li, .woocommerce .widget_featured_products li, .woocommerce .widget_recent_reviews li, .woocommerce .widget_recent_products li, .woocommerce .widget_recently_viewed_products li, .woocommerce .widget_random_products li, .woocommerce .widget_top_rated_products li, .woocommerce .widget_onsale li, .woocommerce .widget_layered_nav li, .woocommerce .widget_shopping_cart ul.product_list_widget li, .woocommerce .widget_products li, .woocommerce .product .related.products, .woocommerce .product .upsells.products, .woocommerce .product div.entry-summary h1.product_title:after, .woocommerce .quantity input.qty, .header-stack #Top_bar .logo, .offer_thumb .slider_pagination, .offer_thumb .slider_pagination a, .Latest_news ul li .desc_footer, .Latest_news ul li .photo, .offer_thumb.bottom .slider_pagination a, .style-simple .faq .question, .style-simple #Filters .filters_wrapper ul, #edd_checkout_cart th, #edd_checkout_cart td {
+    border-color: rgba(0,0,0,.08);
+}
+input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea {
+    padding: 10px;
+    outline: none;
+    margin: 0;
+    width: 230px;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 0;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+}
+user agent stylesheet
+input {
+    -webkit-writing-mode: horizontal-tb !important;
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    cursor: text;
+    margin: 0em;
+    font: 400 13.3333px Arial;
+    padding: 1px 0px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+.one-second.column {
+    width: 48%;
+}
+.wpcf7-form .column {
+    margin-bottom: 10px;
+}
+.column, .columns {
+    float: left;
+    margin: 0 1% 40px;
+}
+
+input[type="date"], input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], select, textarea, .woocommerce .quantity input.qty, .dark input[type="email"], .dark input[type="password"], .dark input[type="tel"], .dark input[type="text"], .dark select, .dark textarea {
+    color: #7652da;
+    background-color: rgba(255,255,255,1);
+    border-color: #EBEBEB;
+}
+
+body, button, span.date_label, .timeline_items li h3 span, input[type="submit"], input[type="reset"], input[type="button"], input[type="text"], input[type="password"], input[type="tel"], input[type="email"], textarea, select, .offer_li .title h3 {
+    font-family: "Montserrat Alternates", Arial, Tahoma, sans-serif;
+}
+
+a.button_theme, a.tp-button.button_theme, button, input[type="submit"], input[type="reset"], input[type="button"] {
+    background-color: #7652da;
+    color: #ffffff;
+}
+
+a.button, a.tp-button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+    display: inline-block;
+    padding: 11px 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    margin-right: 7px;
+    border: 0;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.03), inset 0px 4px 3px -2px rgba(0,0,0,.07);
+}
+
+div.wpcf7-response-output {
+    margin: 2em 0.5em 1em;
+    padding: 0.2em 1em;
+    border: 2px solid #f00;
+}
+
+.wpcf7-display-none {
+    display: none;
+}
+
+
+
+
+/*Other footer*/
+.vc_section {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.vc_custom_1571458289205 {
+    padding-top: 80px !important;
+    padding-bottom: 10px !important;
+    //background-image: url('../../../../assets/images/footer/footer-bg.jpg') !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+.vc_row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.vc_section[data-vc-full-width]>.vc_row {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.vc_column_container>.vc_column-inner {
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+
+.wpb_button, .wpb_content_element, ul.wpb_thumbnails-fluid>li {
+    margin-bottom: 35px;
+}
+
+ul.bt-gym-opentime > li, ol.bt-gym-opentime > li {
+    list-style: none;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+    color: #39BCDD;
+    padding: 12px 0;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+ul.bt-gym-opentime > li .bt-label, ol.bt-gym-opentime > li .bt-label {
+    display: inline-block;
+    min-width: 180px;
+    color: #555555;
+}
+
+.vc_col-has-fill>.vc_column-inner, .vc_row-has-fill+.vc_row-full-width+.vc_row>.vc_column_container>.vc_column-inner, .vc_row-has-fill+.vc_row>.vc_column_container>.vc_column-inner, .vc_row-has-fill>.vc_column_container>.vc_column-inner {
+    padding-top: 35px;
+}
+
+.vc_column_container>.vc_column-inner {
+    box-sizing: border-box;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+}
+.vc_custom_1571458358606 {
+    padding-top: 40px !important;
+    padding-right: 30px !important;
+    padding-bottom: 40px !important;
+    padding-left: 30px !important;
+    background-image: url(https://www.lemonspa.beplusthemes.com/lemon-gym/wp-content/uploads/2018/06/gym_timetable-min.jpg?id=2255) !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    border-radius: 4px !important;
+}
+
+.vc_custom_1528259133719 {
+    margin-bottom: 0px !important;
+}
+
+.vc_btn3-container.vc_btn3-center {
+    text-align: center;
+}
+
+.vc_btn3-container {
+    display: block;
+    margin-bottom: 21.73913043px;
+    max-width: 100%;
+}
+.vc_custom_1528278698378 {
+    margin-bottom: 10px !important;
+}
+
+
+#page .vc_btn3.vc_btn3-style-custom {
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+
+#page .vc_btn3 {
+    border: 0;
+}
+.vc_btn3.vc_btn3-size-md {
+    font-size: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.vc_btn3.vc_btn3-shape-rounded {
+    border-radius: 5px;
+}
+.vc_btn3.vc_btn3-style-custom {
+    background-image: -webkit-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.1) 50%,rgba(0,0,0,.1));
+    background-image: -o-linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.1) 50%,rgba(0,0,0,.1));
+    background-image: linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.1) 50%,rgba(0,0,0,.1));
+    background-repeat: no-repeat;
+    background-repeat: repeat-x;
+    background-size: 200%;
+    background-position: 0 -100%;
+}
+.vc_general.vc_btn3 {
+    display: inline-block;
+    margin-bottom: 0;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    background-color: transparent;
+    color: #5472d2;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+    position: relative;
+    top: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    line-height: normal;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.bt-click > a {
+    color: #ffffff;
+    background: transparent !important;
+    font-weight: 700;
+    font-size: 16px;
+}
+a {
+    color: #39bcdd;
+}
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+i{
+    color: #f98c00;
+    font-size: 16px;
+    margin-right: 15px;
+}
+.contact-container{
+    display: flex;
+   justify-content: left;
+   align-items: center;
+}
+
+.contact-container span{
+    font-size: 16px;
+    color: #39bcdd;
+}
+
+.contac-bottom-space{
+    margin-bottom: 15px;
+}
