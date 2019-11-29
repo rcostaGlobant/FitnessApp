@@ -1,7 +1,7 @@
 <header >
         <div class="container">
-                <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #EEFF42;"><!--here was the class fixed-top-->
-                  
+                <nav class="navbar navbar-expand-lg navbar-light col-12" style="background-color: #EEFF42;"><!--here was the class fixed-top-->
+
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
@@ -9,47 +9,61 @@
                         <img src="../../../../assets/images/logos/logo.png" alt="">
                   </div-->
                   <div class="row collapse navbar-collapse" id="navbarNav">
-                       
-                        <ul class="navbar-nav row col-10 justify-content-center">
-                            
+
+                        <ul class="navbar-nav col-10 justify-content-center sibling-fade">
+
                             <li class="nav-item active">
-                                <a class="nav-link " [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-link " [routerLink]="['/home']"><span class="sr-only">(current)</span><i class="fas fa-home"></i></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Features</a>
+                                <a class="nav-link" href="#">Holistic Nutrition</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pricing</a>
+                                <a class="nav-link" href="#">Fitness</a>
                             </li>
-                            
                             <li class="nav-item">
-                                    <a class="nav-link" href="#">Login</a>
+                                <a class="nav-link" href="#">Dance</a>
                             </li>
-                            
+                            <li class="nav-item" *ngIf="loggedUser" >
+                                <a class="nav-link" href="#">My Orders</a>
+                            </li>
+                            <li class="nav-item" *ngIf="loggedUser"  (click)="signOut()" >
+                                <a class="nav-link"><i class="fas fa-outdent"></i>Log Out</a>
+                            </li>
+
                         </ul>
-                
-                <div class="row"> 
-                            
+
+                <div class="row col-2">
+
                     <span class="nav-item">
                         <a class="nav-link" href="#"><i class="fab fa-facebook-square"></i></a>
                     </span>
                     <span class="nav-item">
                         <a class="nav-link" href="#"><i class="fab fa-instagram"></i></a>
                     </span>
-                    
+
                     <span class="nav-item">
                             <a class="nav-link" href="#"><i class="fab fa-youtube"></i></a>
                     </span>
-                
-                      
+                    <span class="nav-item" *ngIf="!loggedUser">
+                        <a class="nav-link" [routerLink]="['/login']">  <i class="fas fa-sign-in-alt"></i></a>
+                    </span>
+                    <div *ngIf="loggedUser">
+                        <span class="nav-item"  >
+                            <img src="{{user.photoUrl}}" style="border-radius: 50%;
+                            width: 36px;">
+                        </span>
+                    </div>
+
+
                 </div>
                   </div>
-                  
+
                 </nav>
                 <app-fitness-logo-name></app-fitness-logo-name>
                 <!--app-carousel-navbar></app-carousel-navbar-->
               </div>
-              
+
 </header>
 
 

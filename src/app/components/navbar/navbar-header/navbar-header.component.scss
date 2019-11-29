@@ -1,0 +1,12 @@
+.sibling-fade:hover li:not(:hover) {
+  opacity: 0.5;
+
+}
+li a:hover{
+  color:blue !important;
+}
+
+li {
+  padding: 0 1rem;
+  transition: opacity 0.2s;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService, SocialUser } from 'angularx-social-login';
 
 @Component({
   selector: 'app-navbar-header',
@@ -7,11 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarHeaderComponent implements OnInit {
 
+  loggedUser: boolean;
+  user: SocialUser;
 
+  constructor(private authService: AuthService) { }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.authService.authState.subscribe((user) => {
+      this.loggedUser= (user != null);
+      this.user=user;
+    });
+  }
 
-  ngOnInit() {
+  signOut(): void {
+    this.authService.signOut();
   }
 
 }

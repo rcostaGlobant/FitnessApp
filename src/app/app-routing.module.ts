@@ -2,6 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {
+    path: 'login',
+    loadChildren: () => import('./modules/feature/auth/auth.module').then(m => m.AuthModule)
+  },
   {
     path: 'home',
     loadChildren: () => import('./modules/feature/initial/initial.module').then(m => m.InitialModule)
@@ -18,7 +23,7 @@ const routes: Routes = [
     path: 'dance',
     loadChildren: () => import('./modules/feature/dance/dance.module').then(m => m.DanceModule)
   },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+
   { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 

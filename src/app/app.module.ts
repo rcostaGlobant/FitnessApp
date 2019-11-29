@@ -8,6 +8,24 @@ import { CoreModule } from './modules/core/core.module';
 import { UnderConstructionModalComponent } from './components/shared/under-construction-modal/under-construction-modal.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { DanceGalleryModalComponent } from './components/dance/dance-gallery-modal/dance-gallery-modal.component';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider("430345365180-tj0av819gg5i2srk5jctv2ks30u7nftm.apps.googleusercontent.com")
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider("Facebook-App-Id")
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,11 +36,13 @@ import { DanceGalleryModalComponent } from './components/dance/dance-gallery-mod
     BrowserAnimationsModule,
     FontAwesomeModule,
     CoreModule,
+    SocialLoginModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [{provide: AuthServiceConfig,
+    useFactory: provideConfig}],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents: [UnderConstructionModalComponent,DanceGalleryModalComponent],
+  entryComponents: [UnderConstructionModalComponent, DanceGalleryModalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
