@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./modules/feature/initial/initial.module').then(m => m.InitialModule)
   },
   {
-    path: 'training-programs',
+    path: 'fitness',
     loadChildren: () => import('./modules/feature/training/training.module').then(m => m.TrainingModule)
   },
   {
