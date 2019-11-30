@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,23 +11,31 @@ import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-logi
 })
 export class UserLogInComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
   loginWithGoogle(): void{
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(this.goToMainPage, this.errorRequest);
 
   }
 
-  /*loginWithFacebook(){
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID);
+  loginWithFacebook(){
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(this.goToMainPage, this.errorRequest);
 
-  }*/
+  }
 
   signOut(): void {
     this.authService.signOut();
   }
+
+   
+    goToMainPage=(res)=>{
+      //aqui con el usuario logueado busco sus programas y su configuracion asociada
+      this.router.navigateByUrl('/home');
+    };
+
+    errorRequest=(res)=>this.router.navigateByUrl('/home');
 
 }
