@@ -6,13 +6,14 @@ import { TrainingProgramsComponent } from '../../../components/training/training
 import { SelectTrainingScheduleComponent } from '../../../components/training/select-training-schedule/select-training-schedule.component';
 import { PersonalTrainingSectionComponent } from '../../../components/training/personal-training-section/personal-training-section.component';
 import { PersonalTrainingTypeComponent } from '../../../components/training/personal-training-type/personal-training-type.component';
-import { PersonalTrainingSectionInfoComponent } from '../../../components/training/personal-training-section-info/personal-training-section-info.component';
+
 import { SharedModule } from '../../shared/shared.module';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { FormsModule } from '@angular/forms';
+import { UserTrainingInfoComponent } from '../../../components/training/user-training-info/user-training-info.component';
 
 @NgModule({
-  declarations: [TrainingProgramsComponent, SelectTrainingScheduleComponent, PersonalTrainingSectionComponent, PersonalTrainingTypeComponent, PersonalTrainingSectionInfoComponent],
+  declarations: [TrainingProgramsComponent, SelectTrainingScheduleComponent, PersonalTrainingSectionComponent, PersonalTrainingTypeComponent, UserTrainingInfoComponent],
   imports: [
     CommonModule,
     SharedModule ,
