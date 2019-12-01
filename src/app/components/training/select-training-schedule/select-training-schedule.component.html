@@ -1,4 +1,4 @@
-<p>Example of the range selection</p>
+<p>Apointment Schedule</p>
 
 <ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden" style="    width: 75%;">
 </ngb-datepicker>
@@ -16,5 +16,19 @@
 
 <hr>
 
-<pre>From: {{ fromDate | json }} </pre>
-<pre>To: {{ toDate | json }} </pre>
+
+<div class="card" style="width: 75%; margin-bottom: 5%;" >
+    <div class="card-header">
+      Select Apointment Hour
+    </div>
+    <div class="card-body">
+        <div class="ngx-timepicker-field-example">
+            <ngx-timepicker-field
+            [defaultTime]="'08:00 am'"
+            [disabled]="!toDate"
+            [(ngModel)]="choosenTime"
+            (ngModelChange)="timeChanged()"></ngx-timepicker-field>
+        </div>
+    </div>
+
+  </div>

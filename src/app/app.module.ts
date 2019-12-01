@@ -10,6 +10,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { DanceGalleryModalComponent } from './components/dance/dance-gallery-modal/dance-gallery-modal.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 let config = new AuthServiceConfig([
   {
@@ -37,6 +38,7 @@ export function provideConfig() {
     FontAwesomeModule,
     CoreModule,
     SocialLoginModule,
+    NgxMaterialTimepickerModule,
     AppRoutingModule
   ],
   providers: [{provide: AuthServiceConfig,

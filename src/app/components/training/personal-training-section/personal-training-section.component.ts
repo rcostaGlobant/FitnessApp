@@ -8,8 +8,9 @@ import { TrainingService } from 'src/app/services/training.service';
 })
 export class PersonalTrainingSectionComponent implements OnInit {
 
-  fromDate:any;
-  toDate:any;
+  fromDate: any;
+  toDate: any;
+  hourSelected: any;
   constructor(private trainingService: TrainingService) { }
 
   ngOnInit() {
@@ -18,6 +19,10 @@ export class PersonalTrainingSectionComponent implements OnInit {
         this.fromDate = new Date(data.fromDate.year,data.fromDate.month-1,data.fromDate.day).toLocaleDateString();
         this.toDate = !!data && !!data.toDate? new Date(data.toDate.year,data.toDate.month-1,data.toDate.day).toLocaleDateString():null;
       }
+    });
+
+    this.trainingService.hour$.subscribe(hour => {
+        this.hourSelected = !!hour? hour:null;
     });
   }
 

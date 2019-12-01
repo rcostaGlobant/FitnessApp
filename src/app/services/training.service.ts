@@ -10,12 +10,19 @@ export class TrainingService {
   private dataSource = new BehaviorSubject<any>(undefined);
   public date$ = this.dataSource.asObservable();
 
+  private hourSource = new BehaviorSubject<any>(undefined);
+  public hour$ = this.hourSource.asObservable();
+
   updatedDateSelection(fromDate: NgbDate,toDate: NgbDate){
     let data={
       fromDate:fromDate,
       toDate:toDate
     };
     this.dataSource.next(data);
+  }
+
+  updatedHourSelection(hour:any){
+    this.hourSource.next(hour);
   }
 
   constructor() { }

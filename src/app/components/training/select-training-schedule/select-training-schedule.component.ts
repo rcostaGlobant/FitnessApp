@@ -1,4 +1,4 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, ElementRef } from '@angular/core';
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from 'events';
 import { TrainingService } from 'src/app/services/training.service';
@@ -12,12 +12,14 @@ export class SelectTrainingScheduleComponent implements OnInit {
   hoveredDate: NgbDate;
   fromDate: NgbDate;
   toDate: NgbDate;
+  choosenTime:any
 
-  @Output() selectedDate= new EventEmitter();
+  //@ViewChild('myPickerRef',{static: false}) myTimePicker: ElementRef;
+
 
   constructor(calendar: NgbCalendar, private trainingService:TrainingService) {
     this.fromDate = calendar.getToday();
-    this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    //this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
    }
 
   ngOnInit() {
@@ -47,5 +49,9 @@ export class SelectTrainingScheduleComponent implements OnInit {
     return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
   }
 
+  timeChanged() {
+    console.log(this.choosenTime);
+    this.trainingService.updatedHourSelection(this.choosenTime);
+  }
 
 }
