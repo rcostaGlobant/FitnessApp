@@ -24,7 +24,7 @@
         <div class="ngx-timepicker-field-example" style="margin-left: 20px;padding: 1%;height: 60px;">
             <ngx-timepicker-field
             [defaultTime]="'08:00 am'"
-            [disabled]="!toDate"
+            [disabled]="!this.trainig.trainingEndDate"
             [(ngModel)]="choosenTime"
             (ngModelChange)="timeChanged()"></ngx-timepicker-field>
         </div>

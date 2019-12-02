@@ -1,8 +1,9 @@
 import { UserTrainingInfo } from '../user-training-info/user-training-info';
+import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 
 export class Training {
-  trainingBeginDate:string;
-  trainingEndDate:string;
-  trainingUserHour;string;
-  userInfo:UserTrainingInfo;
+  trainingBeginDate: NgbDate;
+  trainingEndDate: NgbDate;
+  trainingUserHour: any;
+  userInfo: UserTrainingInfo;
 }

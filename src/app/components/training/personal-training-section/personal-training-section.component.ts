@@ -16,15 +16,15 @@ export class PersonalTrainingSectionComponent implements OnInit {
               private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.trainingService.date$.subscribe(data => {
-      if(!!data){
-        this.fromDate = new Date(data.fromDate.year,data.fromDate.month-1,data.fromDate.day).toLocaleDateString();
-        this.toDate = !!data && !!data.toDate? new Date(data.toDate.year,data.toDate.month-1,data.toDate.day).toLocaleDateString():null;
+    this.trainingService.training$.subscribe(training=> {
+      if(!!training){
+        this.fromDate = new Date(training.trainingBeginDate.year, training.trainingBeginDate.month-1, training.trainingBeginDate.day).toLocaleDateString();
+        this.toDate = !!training && !!training.trainingEndDate? new Date(training.trainingEndDate.year,training.trainingEndDate.month-1,training.trainingEndDate.day).toLocaleDateString():null;
       }
     });
 
-    this.trainingService.hour$.subscribe(hour => {
-        this.hourSelected = !!hour ? hour : null;
+    this.trainingService.training$.subscribe(training => {
+        this.hourSelected = !!training && !!training.trainingUserHour ? training.trainingUserHour : null;
     });
   }
 

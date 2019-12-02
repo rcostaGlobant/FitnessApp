@@ -2,6 +2,7 @@ import { Component, OnInit, Output, ViewChild, ElementRef } from '@angular/core'
 import { NgbDate, NgbCalendar } from '@ng-bootstrap/ng-bootstrap';
 import { EventEmitter } from 'events';
 import { TrainingService } from 'src/app/services/training.service';
+import { Training } from 'src/app/models/training/training/training';
 
 @Component({
   selector: 'app-select-training-schedule',
@@ -10,46 +11,50 @@ import { TrainingService } from 'src/app/services/training.service';
 })
 export class SelectTrainingScheduleComponent implements OnInit {
   hoveredDate: NgbDate;
-  fromDate: NgbDate;
-  toDate: NgbDate;
+  /*fromDate: NgbDate;
+  toDate: NgbDate;*/
   choosenTime:any
+
+  trainig: Training;
 
 
 
   constructor(calendar: NgbCalendar, private trainingService:TrainingService) {
-    this.fromDate = calendar.getToday();
-    //this.toDate = calendar.getNext(calendar.getToday(), 'd', 10);
+    this.trainig= new Training();
+    this.trainig.trainingBeginDate = calendar.getToday();
+    //this.trainig.trainingEndDate = calendar.getNext(calendar.getToday(), 'd', 10);
    }
 
   ngOnInit() {
   }
 
   onDateSelection(date: NgbDate) {
-    if (!this.fromDate && !this.toDate) {
-      this.fromDate = date;
-    } else if (this.fromDate && !this.toDate && date.after(this.fromDate)) {
-      this.toDate = date;
+    if (!this.trainig.trainingBeginDate && !this.trainig.trainingEndDate) {
+      this.trainig.trainingBeginDate = date;
+    } else if (this.trainig.trainingBeginDate && !this.trainig.trainingEndDate && date.after(this.trainig.trainingBeginDate)) {
+      this.trainig.trainingEndDate = date;
     } else {
-      this.toDate = null;
-      this.fromDate = date;
+      this.trainig.trainingEndDate = null;
+      this.trainig.trainingBeginDate = date;
     }
-    this.trainingService.updatedDateSelection(this.fromDate, this.toDate);
+    this.trainingService.updatedUserDateSelection(this.trainig);
   }
 
   isHovered(date: NgbDate) {
-    return this.fromDate && !this.toDate && this.hoveredDate && date.after(this.fromDate) && date.before(this.hoveredDate);
+    return this.trainig.trainingBeginDate && !this.trainig.trainingEndDate && this.hoveredDate && date.after(this.trainig.trainingBeginDate) && date.before(this.hoveredDate);
   }
 
   isInside(date: NgbDate) {
-    return date.after(this.fromDate) && date.before(this.toDate);
+    return date.after(this.trainig.trainingBeginDate) && date.before(this.trainig.trainingEndDate);
   }
 
   isRange(date: NgbDate) {
-    return date.equals(this.fromDate) || date.equals(this.toDate) || this.isInside(date) || this.isHovered(date);
+    return date.equals(this.trainig.trainingBeginDate) || date.equals(this.trainig.trainingEndDate) || this.isInside(date) || this.isHovered(date);
   }
 
   timeChanged() {
-    this.trainingService.updatedHourSelection(this.choosenTime);
+    this.trainig.trainingUserHour=this.choosenTime;
+    this.trainingService.updatedUserHourSelection(this.trainig);
   }
 
 }
