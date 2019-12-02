@@ -1,32 +1,27 @@
-<p style="margin-left: 25px;">Apointment Schedule</p>
+<div class="card m-3" style="width: 70%;">
+    <h5 class="card-header" style="text-align: center;">Apointment  Schedule</h5>
+    <div class="card-body" style="display: flex;
+    background-color: #f7f7f7;
+    justify-content: space-around;">
+        <ngb-datepicker class="ngb-datepicke-color" #dp (select)="onDateSelection($event)"
+        [displayMonths]="1"
+        [dayTemplate]="t"
+        outsideDays="hidden"
+        style="width: 35%;padding: 1%; margin-left: 20px;margin-bottom: 20px; ">
+        </ngb-datepicker>
 
-<ngb-datepicker #dp (select)="onDateSelection($event)"
-[displayMonths]="2"
- [dayTemplate]="t"
-  outsideDays="hidden"
-  style="width: 65%;padding: 1%; margin-left: 20px;margin-bottom: 20px; ">
-</ngb-datepicker>
+        <ng-template #t let-date let-focused="focused">
+        <span class="custom-day"
+              [class.focused]="focused"
+              [class.range]="isRange(date)"
+              [class.faded]="isHovered(date) || isInside(date)"
+              (mouseenter)="hoveredDate = date"
+              (mouseleave)="hoveredDate = null">
+          {{ date.day }}
+        </span>
+        </ng-template>
 
-<ng-template #t let-date let-focused="focused">
-  <span class="custom-day"
-        [class.focused]="focused"
-        [class.range]="isRange(date)"
-        [class.faded]="isHovered(date) || isInside(date)"
-        (mouseenter)="hoveredDate = date"
-        (mouseleave)="hoveredDate = null">
-    {{ date.day }}
-  </span>
-</ng-template>
-
-<!--hr-->
-
-
-<div class="card" style="width: 65%; margin-bottom: 2%;margin-left: 20px;" >
-    <div class="card-header">
-      Select Apointment Hour
-    </div>
-    <div class="card-body">
-        <div class="ngx-timepicker-field-example">
+        <div class="ngx-timepicker-field-example" style="margin-left: 20px;padding: 1%;height: 60px;">
             <ngx-timepicker-field
             [defaultTime]="'08:00 am'"
             [disabled]="!toDate"
@@ -34,5 +29,11 @@
             (ngModelChange)="timeChanged()"></ngx-timepicker-field>
         </div>
     </div>
+</div>
 
-  </div>
+
+
+<!--hr-->
+
+
+

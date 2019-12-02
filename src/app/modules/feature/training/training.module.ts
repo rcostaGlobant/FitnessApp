@@ -9,7 +9,7 @@ import { PersonalTrainingTypeComponent } from '../../../components/training/pers
 
 import { SharedModule } from '../../shared/shared.module';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserTrainingInfoComponent } from '../../../components/training/user-training-info/user-training-info.component';
 
 @NgModule({
@@ -18,6 +18,7 @@ import { UserTrainingInfoComponent } from '../../../components/training/user-tra
     CommonModule,
     SharedModule ,
     FormsModule,
+    ReactiveFormsModule,
     NgxMaterialTimepickerModule,
     TrainingRoutingModule
   ]

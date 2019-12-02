@@ -14,7 +14,6 @@ export class SelectTrainingScheduleComponent implements OnInit {
   toDate: NgbDate;
   choosenTime:any
 
-  //@ViewChild('myPickerRef',{static: false}) myTimePicker: ElementRef;
 
 
   constructor(calendar: NgbCalendar, private trainingService:TrainingService) {
@@ -50,7 +49,6 @@ export class SelectTrainingScheduleComponent implements OnInit {
   }
 
   timeChanged() {
-    console.log(this.choosenTime);
     this.trainingService.updatedHourSelection(this.choosenTime);
   }
 
