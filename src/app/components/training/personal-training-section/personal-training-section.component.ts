@@ -12,7 +12,8 @@ export class PersonalTrainingSectionComponent implements OnInit {
   fromDate: any;
   toDate: any;
   hourSelected: any;
-  constructor(private trainingService: TrainingService,private router: Router, private route: ActivatedRoute) { }
+  constructor(private trainingService: TrainingService,
+              private router: Router, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.trainingService.date$.subscribe(data => {
@@ -30,11 +31,13 @@ export class PersonalTrainingSectionComponent implements OnInit {
   navigateUrl(){
     let url=this.router.url;
     if(this.router.url.includes('schedule')){
-      this.router.navigate(["./user-info"], {relativeTo: this.route});
+      this.router.navigate(["./user-info"], {relativeTo: this.activeRoute});
     }
     else if(this.router.url.includes('schedule')){}
+  }
 
-
+  goBack(){
+    this.router.navigate(['..'], {relativeTo: this.activeRoute, skipLocationChange: true});
   }
 
 }

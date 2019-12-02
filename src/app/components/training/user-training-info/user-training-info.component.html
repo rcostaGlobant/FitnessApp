@@ -1,1 +1,27 @@
-<p>user-training-info works!</p>
+
+<p style="margin-left: 25px;">
+  <a>Add your Info</a>
+</p>
+
+<div class="example-container">
+    <mat-form-field hintLabel="Max 10 characters">
+      <input matInput #input maxlength="10" placeholder="Name *">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field >
+      <input matInput #input maxlength="10" placeholder="Email *">
+      <mat-hint align="end"></mat-hint>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 10 characters">
+      <input matInput #input maxlength="10" placeholder="Phone Number *">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field hintLabel="Max 10 characters">
+      <input matInput #input maxlength="10" placeholder="Add your Message">
+      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
+    </mat-form-field>
+
+  </div>
