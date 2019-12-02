@@ -1,7 +1,12 @@
+import { UserTrainingInfo } from 'src/app/models/training/user-training-info/user-training-info';
+import { Training } from './../../../models/training/training/training';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
+import { TrainingService } from 'src/app/services/training.service';
+
+
 
 @Component({
   selector: 'app-user-training-info',
@@ -12,30 +17,39 @@ export class UserTrainingInfoComponent implements OnInit {
 
   userTrainingForm: FormGroup;
   submitted = false;
+  training: Training;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder,private trainingService: TrainingService) {
+    this.trainingService.training$.subscribe(training=> {
+      if(!!training)
+        this.training = training;
+    });
+  }
 
   ngOnInit() {
     this.userTrainingForm = this.formBuilder.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
+      fullName: ['', Validators.required],
       phone: ['', [Validators.required, Validators.minLength(6)]],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['', [Validators.required, Validators.email]],
+      message: ['', Validators.required]
     });
-
-    this.onChanges();
 
   }
 
   get f() { return this.userTrainingForm.controls; }
 
-   onChanges(): void {
-    this.userTrainingForm.valueChanges
-    .pipe(debounceTime(500))
-    .subscribe(val => {
-      this.userTrainingForm.valid ? console.log("Valid") : console.log("INValid");
 
-    });
+
+  onSubmit(){
+    if(this.userTrainingForm.valid){
+      let userInfo = new UserTrainingInfo();
+      userInfo.userFullName = this.f.fullName.value;
+      userInfo.userPhone = this.f.phon.value;
+      userInfo.userEmail = this.f.emai.value;
+      userInfo.userMessage = this.f.message.value;
+      this.training.userInfo = userInfo;
+      this.trainingService.updatedTrainingData(this.training);
+    }
   }
 
 

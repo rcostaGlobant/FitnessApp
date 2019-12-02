@@ -12,15 +12,23 @@ export class PersonalTrainingSectionComponent implements OnInit {
   fromDate: any;
   toDate: any;
   hourSelected: any;
+  hasToPay: boolean;
+
   constructor(private trainingService: TrainingService,
-              private router: Router, private activeRoute: ActivatedRoute) { }
+              private router: Router, private activeRoute: ActivatedRoute) {
+                this.hasToPay = false;
+              }
 
   ngOnInit() {
     this.trainingService.training$.subscribe(training=> {
       if(!!training){
         this.fromDate = new Date(training.trainingBeginDate.year, training.trainingBeginDate.month-1, training.trainingBeginDate.day).toLocaleDateString();
         this.toDate = !!training && !!training.trainingEndDate? new Date(training.trainingEndDate.year,training.trainingEndDate.month-1,training.trainingEndDate.day).toLocaleDateString():null;
+        if(!!training.userInfo)
+        this.hasToPay=true;
+
       }
+
     });
 
     this.trainingService.training$.subscribe(training => {
@@ -29,11 +37,11 @@ export class PersonalTrainingSectionComponent implements OnInit {
   }
 
   navigateUrl(){
-    let url=this.router.url;
+    //let url=this.router.url;
     if(this.router.url.includes('schedule')){
       this.router.navigate(["./user-info"], {relativeTo: this.activeRoute});
     }
-    else if(this.router.url.includes('schedule')){}
+   //lse if(this.router.url.includes('schedule')){}
   }
 
   goBack(){

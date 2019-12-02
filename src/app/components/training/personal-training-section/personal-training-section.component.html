@@ -24,8 +24,11 @@
                 <p>{{hourSelected}}</p>
             </div>
 
-            <div>
+            <div *ngIf="!hasToPay" >
               <button (click)="navigateUrl()">Next</button>
+            </div>
+            <div *ngIf="hasToPay" >
+              <button (click)="navigateUrl()">Pay</button>
             </div>
 
         </div>

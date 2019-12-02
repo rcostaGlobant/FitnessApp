@@ -1,6 +1,6 @@
-export interface UserTrainingInfo {
-  userName:string;
-  userEmail:string;
-  userPhone:string;
-  userMessage:string;
+export class UserTrainingInfo {
+  userFullName: string;
+  userEmail: string;
+  userPhone: string;
+  userMessage: string;
 }

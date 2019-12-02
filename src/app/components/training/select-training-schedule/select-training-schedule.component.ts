@@ -11,19 +11,16 @@ import { Training } from 'src/app/models/training/training/training';
 })
 export class SelectTrainingScheduleComponent implements OnInit {
   hoveredDate: NgbDate;
-  /*fromDate: NgbDate;
-  toDate: NgbDate;*/
-  choosenTime:any
-
+  choosenTime: any;
   trainig: Training;
 
 
 
-  constructor(calendar: NgbCalendar, private trainingService:TrainingService) {
+  constructor(calendar: NgbCalendar, private trainingService: TrainingService) {
     this.trainig= new Training();
     this.trainig.trainingBeginDate = calendar.getToday();
-    //this.trainig.trainingEndDate = calendar.getNext(calendar.getToday(), 'd', 10);
-   }
+
+  }
 
   ngOnInit() {
   }
@@ -37,7 +34,7 @@ export class SelectTrainingScheduleComponent implements OnInit {
       this.trainig.trainingEndDate = null;
       this.trainig.trainingBeginDate = date;
     }
-    this.trainingService.updatedUserDateSelection(this.trainig);
+    this.trainingService.updatedTrainingData(this.trainig);
   }
 
   isHovered(date: NgbDate) {
@@ -54,7 +51,7 @@ export class SelectTrainingScheduleComponent implements OnInit {
 
   timeChanged() {
     this.trainig.trainingUserHour=this.choosenTime;
-    this.trainingService.updatedUserHourSelection(this.trainig);
+    this.trainingService.updatedTrainingData(this.trainig);
   }
 
 }
