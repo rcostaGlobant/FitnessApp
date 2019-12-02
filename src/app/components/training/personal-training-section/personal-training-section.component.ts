@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TrainingService } from 'src/app/services/training.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-personal-training-section',
@@ -11,7 +12,7 @@ export class PersonalTrainingSectionComponent implements OnInit {
   fromDate: any;
   toDate: any;
   hourSelected: any;
-  constructor(private trainingService: TrainingService) { }
+  constructor(private trainingService: TrainingService,private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.trainingService.date$.subscribe(data => {
@@ -22,8 +23,18 @@ export class PersonalTrainingSectionComponent implements OnInit {
     });
 
     this.trainingService.hour$.subscribe(hour => {
-        this.hourSelected = !!hour? hour:null;
+        this.hourSelected = !!hour ? hour : null;
     });
+  }
+
+  navigateUrl(){
+    let url=this.router.url;
+    if(this.router.url.includes('schedule')){
+      this.router.navigate(["./user-info"], {relativeTo: this.route});
+    }
+    else if(this.router.url.includes('schedule')){}
+
+
   }
 
 }

@@ -1,6 +1,10 @@
-<p>Apointment Schedule</p>
+<p style="margin-left: 25px;">Apointment Schedule</p>
 
-<ngb-datepicker #dp (select)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden" style="    width: 75%;">
+<ngb-datepicker #dp (select)="onDateSelection($event)"
+[displayMonths]="2"
+ [dayTemplate]="t"
+  outsideDays="hidden"
+  style="width: 65%;padding: 1%; margin-left: 20px;margin-bottom: 20px; ">
 </ngb-datepicker>
 
 <ng-template #t let-date let-focused="focused">
@@ -14,10 +18,10 @@
   </span>
 </ng-template>
 
-<hr>
+<!--hr-->
 
 
-<div class="card" style="width: 75%; margin-bottom: 5%;" >
+<div class="card" style="width: 65%; margin-bottom: 2%;margin-left: 20px;" >
     <div class="card-header">
       Select Apointment Hour
     </div>

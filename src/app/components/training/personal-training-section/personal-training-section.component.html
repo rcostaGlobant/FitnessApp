@@ -1,28 +1,32 @@
 
 <div class="container">
-    <div class="row flex-nowrap">
+    <div style="height: 120px;">
         <div class="col-9">
             <h2 class="font_2">PRIVATE TRAINING</h2>
             <a style="color: #9966FF;"><i class="fas fa-chevron-left" style="padding: 2%; color: #9966FF;"></i>Back </a>
         </div>
-        <div class="col-3 sidebar-title" style="    border: 2px solid;position: relative;
-        top: 230px;">
-            <h2 class="">TRAINING SESSION</h2>
-            <div style="border-bottom: 2px solid #dee2e6!important;">
-              1hr | 20usd
+        <div class="col-3 sidebar-title" style="    border: 1px solid #dee2e6;
+        position: relative;
+        top: 38px;
+        height: 390px;
+        left: 955px;">
+            <h2 class="" style="font-size: 1rem;">TRAINING SESSION</h2>
+            <div style="border-bottom: 2px solid #A5D2FF!important;">
+              <p>1hr | 20usd</p>
             </div>
             <div>
-              {{fromDate}}
-              {{toDate}}
-              {{hourSelected}}
-            Ofiice New Ypoirk
-            12345
-            +5632589
+                <p>Ofiice New Ypoirk 12345
+                    +5632589</p>
+                <p>{{fromDate}}</p>
+                <p> {{toDate}}</p>
+                <p>{{hourSelected}}</p>
             </div>
+
             <div>
-              <button>Next</button>
+              <button (click)="navigateUrl()">Next</button>
             </div>
-        </div>
+
+          </div>
     </div>
     <router-outlet></router-outlet>
 </div>
