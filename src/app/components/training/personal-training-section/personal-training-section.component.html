@@ -19,16 +19,16 @@
             <div>
                 <p>Ofiice New Ypoirk 12345
                     +5632589</p>
-                <p>{{fromDate}}</p>
-                <p> {{toDate}}</p>
-                <p>{{hourSelected}}</p>
+                <p>{{training?.trainingBeginDate  | date: 'dd/MM/yyyy'}}</p>
+                <p> {{training?.trainingEndDate | date: 'dd/MM/yyyy'}}</p>
+                <p>{{training?.trainingUserHour}}</p>
             </div>
 
             <div *ngIf="!hasToPay" >
-              <button (click)="navigateUrl()">Next</button>
+              <button (click)="navigateUrl()" [disabled]="!training">Next</button>
             </div>
             <div *ngIf="hasToPay" >
-              <button (click)="navigateUrl()">Pay</button>
+              <button (click)="navigateUrl()" [disabled]="!training" >Pay</button>
             </div>
 
         </div>

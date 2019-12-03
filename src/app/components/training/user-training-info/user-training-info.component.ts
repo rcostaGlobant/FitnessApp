@@ -1,9 +1,9 @@
 import { UserTrainingInfo } from 'src/app/models/training/user-training-info/user-training-info';
 import { Training } from './../../../models/training/training/training';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Subject } from 'rxjs';
-import { debounceTime } from 'rxjs/operators';
+import { debounceTime, takeUntil } from 'rxjs/operators';
 import { TrainingService } from 'src/app/services/training.service';
 
 
@@ -13,15 +13,17 @@ import { TrainingService } from 'src/app/services/training.service';
   templateUrl: './user-training-info.component.html',
   styleUrls: ['./user-training-info.component.scss']
 })
-export class UserTrainingInfoComponent implements OnInit {
+export class UserTrainingInfoComponent implements OnInit,OnDestroy {
 
   userTrainingForm: FormGroup;
   submitted = false;
   training: Training;
+  private unsubscribe$= new Subject<void>();
 
   constructor(private formBuilder: FormBuilder,private trainingService: TrainingService) {
-    this.trainingService.training$.subscribe(training=> {
-      if(!!training)
+    this.trainingService.getTraining()
+    .pipe(takeUntil(this.unsubscribe$)) //desuscribirse para evitar memory leaks
+    .subscribe(training=> {
         this.training = training;
     });
   }
@@ -44,13 +46,20 @@ export class UserTrainingInfoComponent implements OnInit {
     if(this.userTrainingForm.valid){
       let userInfo = new UserTrainingInfo();
       userInfo.userFullName = this.f.fullName.value;
-      userInfo.userPhone = this.f.phon.value;
-      userInfo.userEmail = this.f.emai.value;
+      userInfo.userPhone = this.f.phone.value;
+      userInfo.userEmail = this.f.email.value;
       userInfo.userMessage = this.f.message.value;
-      this.training.userInfo = userInfo;
-      this.trainingService.updatedTrainingData(this.training);
+      if(!!this.training){
+        this.training.userInfo = userInfo;
+        this.trainingService.createOrUpdateNewTraining(this.training);
+      }
+
     }
   }
 
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
 
 }

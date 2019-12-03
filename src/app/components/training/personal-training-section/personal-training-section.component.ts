@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Training } from 'src/app/models/training/training/training';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TrainingService } from 'src/app/services/training.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-personal-training-section',
   templateUrl: './personal-training-section.component.html',
   styleUrls: ['./personal-training-section.component.scss']
 })
-export class PersonalTrainingSectionComponent implements OnInit {
+export class PersonalTrainingSectionComponent implements OnInit, OnDestroy {
 
   fromDate: any;
   toDate: any;
   hourSelected: any;
   hasToPay: boolean;
+  training: Training;
+  private unsubscribe$= new Subject<void>();
 
   constructor(private trainingService: TrainingService,
               private router: Router, private activeRoute: ActivatedRoute) {
@@ -20,34 +25,33 @@ export class PersonalTrainingSectionComponent implements OnInit {
               }
 
   ngOnInit() {
-    this.trainingService.training$.subscribe(training=> {
-      if(!!training){
-        this.fromDate = new Date(training.trainingBeginDate.year, training.trainingBeginDate.month-1, training.trainingBeginDate.day).toLocaleDateString();
-        this.toDate = !!training && !!training.trainingEndDate? new Date(training.trainingEndDate.year,training.trainingEndDate.month-1,training.trainingEndDate.day).toLocaleDateString():null;
-        if(!!training.userInfo)
-        this.hasToPay=true;
-
-      }
-
-    });
-
-    this.trainingService.training$.subscribe(training => {
-        this.hourSelected = !!training && !!training.trainingUserHour ? training.trainingUserHour : null;
+    this.trainingService.getTraining()
+    .pipe(takeUntil(this.unsubscribe$)) //desuscribirse para evitar memory leaks
+    .subscribe( (training: Training)=>{
+      this.training = training;
     });
   }
 
   navigateUrl(){
-    //let url=this.router.url;
-    if(this.router.url.includes('schedule')){
-      this.router.navigate(["./user-info"], {relativeTo: this.activeRoute});
+    if(!!this.training){
+      if(this.router.url.includes('schedule')){
+        this.router.navigate(["./user-info"], {relativeTo: this.activeRoute});
+      }
+     else if(this.router.url.includes('user-info')){
+        this.router.navigate(["./payment"], {relativeTo: this.activeRoute});
+     }
     }
-   else if(this.router.url.includes('user-info')){
-      this.router.navigate(["./payment"], {relativeTo: this.activeRoute});
-   }
+
   }
 
   goBack(){
     this.router.navigate(['..'], {relativeTo: this.activeRoute, skipLocationChange: true});
   }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
+  }
+
 
 }

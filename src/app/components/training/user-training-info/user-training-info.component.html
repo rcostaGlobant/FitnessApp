@@ -1,8 +1,8 @@
 
 <div class="card m-3" style="width: 70%;">
     <h5 class="card-header">Add your Personal Info</h5>
-    <div class="card-body">
-        <form [formGroup]="userTrainingForm" (ngSubmit)="onSubmit()">
+    <div class="card-body" >
+        <form [formGroup]="userTrainingForm" (ngSubmit)="onSubmit()" >
             <div class="form-group">
                 <label>Full Name</label>
                 <input type="text" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
