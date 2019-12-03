@@ -40,7 +40,7 @@ import {
 } from '@angular/material';
 
 const material = [ MatAutocompleteModule,
-
+  //MatMomentDateModule,
   MatBadgeModule,
   MatBottomSheetModule,
   MatButtonModule,

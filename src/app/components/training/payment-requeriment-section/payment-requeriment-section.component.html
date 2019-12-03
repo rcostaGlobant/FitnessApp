@@ -1,0 +1,32 @@
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Credit/Debit Card
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <div class="card m-3" style="width: 70%;">
+      <h5 class="card-header">Add your Personal Info</h5>
+      <div class="card-body">
+          Prueba
+      </div>
+  </div>
+  </mat-expansion-panel>
+
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        PayPal
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="card m-3" style="width: 70%;">
+      <h5 class="card-header">Add your Personal Info</h5>
+      <div class="card-body">
+          Prueba
+      </div>
+      </div>
+  </mat-expansion-panel>
+</mat-accordion>

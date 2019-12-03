@@ -41,7 +41,9 @@ export class PersonalTrainingSectionComponent implements OnInit {
     if(this.router.url.includes('schedule')){
       this.router.navigate(["./user-info"], {relativeTo: this.activeRoute});
     }
-   //lse if(this.router.url.includes('schedule')){}
+   else if(this.router.url.includes('user-info')){
+      this.router.navigate(["./payment"], {relativeTo: this.activeRoute});
+   }
   }
 
   goBack(){

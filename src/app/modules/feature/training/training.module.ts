@@ -11,9 +11,15 @@ import { SharedModule } from '../../shared/shared.module';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserTrainingInfoComponent } from '../../../components/training/user-training-info/user-training-info.component';
+import { PaymentRequerimentSectionComponent } from 'src/app/components/training/payment-requeriment-section/payment-requeriment-section.component';
 
 @NgModule({
-  declarations: [TrainingProgramsComponent, SelectTrainingScheduleComponent, PersonalTrainingSectionComponent, PersonalTrainingTypeComponent, UserTrainingInfoComponent],
+  declarations: [TrainingProgramsComponent,
+                 SelectTrainingScheduleComponent,
+                 PersonalTrainingSectionComponent,
+                 PersonalTrainingTypeComponent,
+                 UserTrainingInfoComponent,
+                 PaymentRequerimentSectionComponent],
   imports: [
     CommonModule,
     SharedModule ,
