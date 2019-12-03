@@ -12,6 +12,7 @@ import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserTrainingInfoComponent } from '../../../components/training/user-training-info/user-training-info.component';
 import { PaymentRequerimentSectionComponent } from 'src/app/components/training/payment-requeriment-section/payment-requeriment-section.component';
+import { TrainingHomeProgramsComponent } from '../../../components/training/training-home-programs/training-home-programs.component';
 
 @NgModule({
   declarations: [TrainingProgramsComponent,
@@ -19,7 +20,8 @@ import { PaymentRequerimentSectionComponent } from 'src/app/components/training/
                  PersonalTrainingSectionComponent,
                  PersonalTrainingTypeComponent,
                  UserTrainingInfoComponent,
-                 PaymentRequerimentSectionComponent],
+                 PaymentRequerimentSectionComponent,
+                 TrainingHomeProgramsComponent],
   imports: [
     CommonModule,
     SharedModule ,

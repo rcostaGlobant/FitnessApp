@@ -1,32 +1,98 @@
-<mat-accordion>
-  <mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        Credit/Debit Card
-      </mat-panel-title>
-    </mat-expansion-panel-header>
+<div class="card m-3" style="
+width: 800px;
+padding: 4%;
+">
+<h5 class="card-header">Select your preferred Payment Method</h5>
+    <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Credit/Debit Card
+          </mat-panel-title>
+        </mat-expansion-panel-header>
 
-    <div class="card m-3" style="width: 70%;">
-      <h5 class="card-header">Add your Personal Info</h5>
-      <div class="card-body">
-          Prueba
+        <div class="card m-3" style="width: 70%;">
+          <h5 class="card-header">Add your Personal Info</h5>
+          <div class="card-body">
+            <form [formGroup]="userTrainingForm" (ngSubmit)="onSubmit()" autocomplete="off" >
+              <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i class="fas fa-user-circle"></i>
+                      </div>
+                    </div>
+                    <input type="text" placeholder="Card Owner Name" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"  />
+                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                        <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text bg-white">
+                        <i class="far fa-credit-card"></i>
+                      </div>
+                    </div>
+                    <input type="text" placeholder="Card Number" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"  />
+                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                        <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                    </div>
+                  </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-5">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                          <i class="fas fa-calendar-alt"></i>
+                        </div>
+                      </div>
+                      <input type="text" placeholder="MM/YY" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"  />
+                      <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                          <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-5">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                          <div class="input-group-text bg-white">
+                            <i class="fas fa-key"></i>
+                          </div>
+                      </div>
+                      <input type="password" placeholder="CVV" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"  />
+                      <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                          <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                      </div>
+                    </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-success btn-lg btn-block" type="submit"><i class="fas fa-database"></i>Submit</button> 
+              </div>
+            </form>
+          </div>
       </div>
-  </div>
-  </mat-expansion-panel>
+      </mat-expansion-panel>
 
 
-  <mat-expansion-panel (opened)="panelOpenState = true"
-                       (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
-      <mat-panel-title>
-        PayPal
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="card m-3" style="width: 70%;">
-      <h5 class="card-header">Add your Personal Info</h5>
-      <div class="card-body">
-          Prueba
-      </div>
-      </div>
-  </mat-expansion-panel>
-</mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            PayPal
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="card m-3" style="width: 70%;">
+          <h5 class="card-header">Add your Personal Info</h5>
+          <div class="card-body">
+              Prueba
+          </div>
+          </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>

@@ -1,13 +1,15 @@
 <div style="display: flex; justify-content: left;">
-  <div style="width: 500px; margin-left:90px">
+  <div style="width: 500px; margin-left:90px; border: 1px solid #b8dbff;">
     <mat-card>
       <mat-calendar [selected]="selectedDate" (selectedChange)="onSelect($event)"></mat-calendar>
     </mat-card>
   </div>
+
   <div style="margin-left:90px">
-    <input [ngxTimepicker]="picker" placeholder="Select a time" [(ngModel)]="choosenTime" (ngModelChange)="timeChanged()">
+    <input [ngxTimepicker]="picker" placeholder="Click to select Time" [(ngModel)]="choosenTime" (ngModelChange)="timeChanged()">
     <ngx-material-timepicker #picker ></ngx-material-timepicker>
   </div>
+
 </div>
 
 

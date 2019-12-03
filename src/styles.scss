@@ -122,3 +122,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', end
     max-width: 150vw !important;
   }
 
+ng::deep input .ng-touched.ng-invalid{
+ border-color:#dc3545;
+}
+
+
+input .ng-valid{
+    border-color:#28a745;
+   }

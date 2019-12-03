@@ -5,10 +5,11 @@ import { PersonalTrainingSectionComponent } from 'src/app/components/training/pe
 import { SelectTrainingScheduleComponent } from 'src/app/components/training/select-training-schedule/select-training-schedule.component';
 import { UserTrainingInfoComponent } from 'src/app/components/training/user-training-info/user-training-info.component';
 import { PaymentRequerimentSectionComponent } from 'src/app/components/training/payment-requeriment-section/payment-requeriment-section.component';
+import { TrainingHomeProgramsComponent } from 'src/app/components/training/training-home-programs/training-home-programs.component';
 
 
 const routes: Routes = [
-  { path: '', component: TrainingProgramsComponent  },
+  { path: '', component: TrainingHomeProgramsComponent/*TrainingProgramsComponent */ },
 
   { path: 'personal-training/:name/booking',
     component: PersonalTrainingSectionComponent,
