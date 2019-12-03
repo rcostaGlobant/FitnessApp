@@ -41,3 +41,9 @@ input { border-style: none; background: transparent; outline: none;padding: 5%;
   border-bottom: 2px solid #b8dbff;
   color: #212121;
  }
+
+ :host::ng-deep .mat-calendar-table-header th{
+  color: #007bff !important;
+  font-size: medium;
+  font-weight: bold;
+ }

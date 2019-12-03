@@ -11,10 +11,10 @@ padding: 4%;
           </mat-panel-title>
         </mat-expansion-panel-header>
 
-        <div class="card m-3" style="width: 70%;">
+        <div class="card m-3" style="width: 90%;">
           <h5 class="card-header">Add your Personal Info</h5>
           <div class="card-body">
-            <form [formGroup]="userTrainingForm" (ngSubmit)="onSubmit()" autocomplete="off" >
+            <form [formGroup]="paymentTrainingForm" (ngSubmit)="onSubmit()" autocomplete="off" >
               <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -22,9 +22,9 @@ padding: 4%;
                         <i class="fas fa-user-circle"></i>
                       </div>
                     </div>
-                    <input type="text" placeholder="Card Owner Name" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"  />
-                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-                        <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                    <input type="text" placeholder="Card Owner Name" formControlName="userCardName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userCardName.errors }"  />
+                    <div *ngIf="submitted && f.userCardName.errors" class="invalid-feedback">
+                        <div *ngIf="f.userCardName.errors.required">First Name is required</div>
                     </div>
                   </div>
               </div>
@@ -36,9 +36,9 @@ padding: 4%;
                         <i class="far fa-credit-card"></i>
                       </div>
                     </div>
-                    <input type="text" placeholder="Card Number" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"  />
-                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-                        <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                    <input type="text" placeholder="Card Number" formControlName="cardNumber" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cardNumber.errors }"  />
+                    <div *ngIf="submitted && f.cardNumber.errors" class="invalid-feedback">
+                        <div *ngIf="f.cardNumber.errors.required">First Name is required</div>
                     </div>
                   </div>
               </div>
@@ -50,9 +50,9 @@ padding: 4%;
                           <i class="fas fa-calendar-alt"></i>
                         </div>
                       </div>
-                      <input type="text" placeholder="MM/YY" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"  />
-                      <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-                          <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                      <input type="text" placeholder="MM/YY" formControlName="cardExpirationDate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cardExpirationDate.errors }"  />
+                      <div *ngIf="submitted && f.cardExpirationDate.errors" class="invalid-feedback">
+                          <div *ngIf="f.cardExpirationDate.errors.required">First Name is required</div>
                       </div>
                     </div>
                 </div>
@@ -64,9 +64,9 @@ padding: 4%;
                             <i class="fas fa-key"></i>
                           </div>
                       </div>
-                      <input type="password" placeholder="CVV" formControlName="fullName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }"  />
-                      <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
-                          <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                      <input type="password" placeholder="CVV" formControlName="cardCvv" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cardCvv.errors }"  />
+                      <div *ngIf="submitted && f.cardCvv.errors" class="invalid-feedback">
+                          <div *ngIf="f.cardCvv.errors.required">First Name is required</div>
                       </div>
                     </div>
                 </div>
