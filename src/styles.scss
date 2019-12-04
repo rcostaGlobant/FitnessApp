@@ -3,7 +3,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Anton|Gugi|Lato|Roboto|Sofia&display=swap');
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
-@import '~@angular/material/prebuilt-themes/indigo-pink.css'; 
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
 :root{
     --light-gray:#2b3032a1;
@@ -26,7 +26,7 @@
 
 .bg-primary-color{
     background-color: var(--primary-color) !important;
-    
+
 }
 
 .text-color{
@@ -43,17 +43,17 @@
 
 
 header{
-    
-   
+
+
     font-family: var(--roboto);
-    
+
 }
 .bg-header-color{
     background: #f98c00;
 }
 .bg-color{
 	background: #39bcdd !important;
-   
+
 }
 header .site-title{
     font-family: var(--gugi);
@@ -130,3 +130,7 @@ ng::deep input .ng-touched.ng-invalid{
 input .ng-valid{
     border-color:#28a745;
    }
+
+ng-deep .mat-select-panel-wrap{
+  width: 110px !important;
+}

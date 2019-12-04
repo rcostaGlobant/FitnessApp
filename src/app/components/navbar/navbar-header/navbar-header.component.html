@@ -5,13 +5,17 @@
                   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                   </button>
-                  <!--div class="nav-item active">
-                        <img src="../../../../assets/images/logos/logo.png" alt="">
-                  </div-->
+                  <div >
+                    <mat-form-field style="width: 85px;">
+                      <mat-select [(value)]="selected">
+                        <mat-option value="option1">EN</mat-option>
+                        <mat-option value="option2">ES</mat-option>
+
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
                   <div class="row collapse navbar-collapse" id="navbarNav">
-
-                        <ul class="navbar-nav col-8 justify-content-center sibling-fade">
-
+                        <ul class="navbar-nav col-7 justify-content-center sibling-fade">
                             <li class="nav-item active">
                                 <a class="nav-link " [routerLink]="['/home']"><span class="sr-only">(current)</span><i class="fas fa-home"></i></a>
                             </li>
