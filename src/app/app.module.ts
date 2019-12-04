@@ -10,8 +10,12 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { DanceGalleryModalComponent } from './components/dance/dance-gallery-modal/dance-gallery-modal.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { UserAuthenticationComponent } from './components/shared/user-authentication/user-authentication.component';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 
 
 let config = new AuthServiceConfig([
@@ -29,6 +33,10 @@ export function provideConfig() {
   return config;
 }
 
+export function HttpLoaderFactory(htpp: HttpClient){
+  return new TranslateHttpLoader(htpp);
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,11 +44,17 @@ export function provideConfig() {
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
     CoreModule,
     SocialLoginModule,
     NgxMaterialTimepickerModule,
+    TranslateModule.forRoot({
+      loader:{provide:TranslateLoader,
+              useFactory: HttpLoaderFactory,
+              deps: [HttpClient]}
+    }),
     AppRoutingModule
   ],
   providers: [{provide: AuthServiceConfig,
