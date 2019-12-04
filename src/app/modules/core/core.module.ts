@@ -8,14 +8,16 @@ import { SharedModule } from '../shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FitnessLogoNameComponent } from '../../components/navbar/fitness-logo-name/fitness-logo-name.component';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [NavbarHeaderComponent, CarouselNavbarComponent, MenuNavbarComponent, NavbarFooterComponent, FitnessLogoNameComponent],
   imports: [
     CommonModule,
     SharedModule,
+    TranslateModule,
     RouterModule,
-    FontAwesomeModule 
+    FontAwesomeModule
   ],
   exports: [NavbarHeaderComponent, CarouselNavbarComponent, MenuNavbarComponent, NavbarFooterComponent, FitnessLogoNameComponent]
 })

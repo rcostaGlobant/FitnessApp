@@ -10,7 +10,7 @@ admin.initializeApp();
  });
 
  export const getConfig = functions.https.onRequest((request, response) => {
-   admin.firestore().collection('navbar')
+   admin.firestore().collection('initialConfig')
    .get()
    .then((data:any)=>{
      let test:any=[];

@@ -10,7 +10,7 @@ import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform
 import { DanceGalleryModalComponent } from './components/dance/dance-gallery-modal/dance-gallery-modal.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
-import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateModule, TranslateLoader, TranslatePipe } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { UserAuthenticationComponent } from './components/shared/user-authentication/user-authentication.component';
@@ -57,8 +57,10 @@ export function HttpLoaderFactory(htpp: HttpClient){
     }),
     AppRoutingModule
   ],
-  providers: [{provide: AuthServiceConfig,
-    useFactory: provideConfig}],
+  providers: [
+    {provide: AuthServiceConfig,
+    useFactory: provideConfig
+    }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [UnderConstructionModalComponent, DanceGalleryModalComponent, UserAuthenticationComponent],
   bootstrap: [AppComponent]

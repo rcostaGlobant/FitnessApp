@@ -1,0 +1,25 @@
+{
+  "navbar":{
+    "navLink":{
+      "holistic":"Holistic Nutrition",
+      "fitness":"Fitness",
+      "dance":"Dance"
+    }
+},
+
+"login":{
+
+},
+
+"holistic":{
+
+},
+
+"dance":{
+
+},
+
+"fitness":{
+
+}
+}
