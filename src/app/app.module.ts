@@ -11,6 +11,7 @@ import { DanceGalleryModalComponent } from './components/dance/dance-gallery-mod
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider, FacebookLoginProvider } from "angularx-social-login";
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { UserAuthenticationComponent } from './components/shared/user-authentication/user-authentication.component';
 
 
 let config = new AuthServiceConfig([
@@ -45,7 +46,7 @@ export function provideConfig() {
   providers: [{provide: AuthServiceConfig,
     useFactory: provideConfig}],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  entryComponents: [UnderConstructionModalComponent, DanceGalleryModalComponent],
+  entryComponents: [UnderConstructionModalComponent, DanceGalleryModalComponent, UserAuthenticationComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="form sign-in">
+    <h2 style="color: rgb(0, 130, 202) !important;">Sign In</h2>
+    <label>
+      <span>Email</span>
+      <input type="email" />
+    </label>
+    <label>
+      <span>Password</span>
+      <input type="password" />
+    </label>
+    <p class="forgot-pass">Forgot password?</p>
+    <button type="button" class="submit">Sign In</button>
+    <div class="information-login">
+        <div style="width: 190px;position: relative;
+        left: 28%;">
+            <p >Not a member?
+                <a href="">Register</a>
+              </p>
+        </div>
+        <div style="margin-top: 5px;width: 190px;position: relative;
+        left: 28%;">
+            <p class="icons-sing-in">or sign in with:
+              </p>
+        </div>
+        <div style="display: flex;
+        justify-content: center;
+        width: 114px;
+        padding: 1%;position: relative;
+    left: 28%;">
+            <a style="margin-right: 16px;
+            margin-left: 20px;" (click)="loginWithFacebook()" ><i class="fab fa-facebook-f" style="color: rgb(3, 169, 244);"></i></a>
+            <a (click)="loginWithGoogle()"><i class="fab fa-google" style="color: rgb(3, 169, 244);"></i></a>
+
+        </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+

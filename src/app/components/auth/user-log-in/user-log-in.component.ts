@@ -1,7 +1,10 @@
+import { Subject } from 'rxjs';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { UserAuthenticationComponent } from '../../shared/user-authentication/user-authentication.component';
 
 
 @Component({
@@ -11,12 +14,29 @@ import { Router } from '@angular/router';
 })
 export class UserLogInComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  currentDialog: MatDialogRef<UserAuthenticationComponent> = null;
+  destroy= new Subject<any>();
+
+  constructor(matDialog: MatDialog,
+              activatedRoute: ActivatedRoute,
+              router: Router) {
+
+        if(this.currentDialog){
+          this.currentDialog.close();
+        }
+        this.currentDialog= matDialog.open(UserAuthenticationComponent);
+        this.currentDialog.afterClosed().subscribe(res=>{
+          console.log("Dialog closed");
+          activatedRoute.url;
+          router.navigateByUrl('/');
+
+        });
+  }
 
   ngOnInit() {
   }
 
-  loginWithGoogle(): void{
+  /*loginWithGoogle(): void{
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(this.goToMainPage, this.errorRequest);
 
   }
@@ -30,12 +50,12 @@ export class UserLogInComponent implements OnInit {
     this.authService.signOut();
   }
 
-   
+
     goToMainPage=(res)=>{
       //aqui con el usuario logueado busco sus programas y su configuracion asociada
       this.router.navigateByUrl('/home');
     };
 
     errorRequest=(res)=>this.router.navigateByUrl('/home');
-
+    */
 }
