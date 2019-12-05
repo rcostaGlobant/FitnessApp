@@ -13,6 +13,7 @@ import { WhyChooseUsComponent } from '../../../components/home/why-choose-us/why
 import { SharedModule } from '../../shared/shared.module';
 import { ProgramOptionsComponent } from '../../../components/home/program-options/program-options.component';
 import { RouterModule } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
+    TranslateModule,
     InitialRoutingModule
   ]
 })

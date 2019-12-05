@@ -27,12 +27,10 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
                     return language.name;
                   });
                   translate.addLangs(languages);
-                  const lang= translate.getLangs();
                   translate.setDefaultLang(this.configuration[2].defaultLanguage);
-                  const browserLang=translate.getBrowserLang();
-                  this.selected=this.configuration[2].defaultLanguage;
-                  translate.use(browserLang.match(/en|fr|es/)? browserLang : this.configuration[2].defaultLanguage);
-                  //translate.use(this.selected);
+                  const browserLang = translate.getBrowserLang();
+                  this.selected = browserLang.match(/en|fr|es/) ? browserLang : this.configuration[2].defaultLanguage;
+                  translate.use(this.selected);
 
               }
 
@@ -40,8 +38,8 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
     this.authService.authState
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe((user) => {
-      this.loggedUser= (user != null);
-      this.user=user;
+      this.loggedUser = (user != null);
+      this.user = user;
     });
   }
 
@@ -49,10 +47,7 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
     this.authService.signOut();
   }
 
-  change(){
-    console.log("changed");
 
-  }
   ngOnDestroy(): void {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

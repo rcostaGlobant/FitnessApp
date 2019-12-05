@@ -1,10 +1,10 @@
 
 
 export class AppConfig {
-  navSocialIcons: SocialIcons;
+  navSocialIcons: SocialIcons[];
   navColor: string;
   defaultLanguage: string;
-  navLinks: NavLinks;
+  navLinks: NavLinks[];
   availableLanguages: AvailableLangs[];
 }
 

@@ -5,21 +5,52 @@
       "fitness":"Fit",
       "dance":"Baile/Danza"
     }
-},
+  },
+  "about":{
+    "header":"BIENVENIDOS A SPORTIFF",
+    "title-first":"Sobre",
+    "title-name":"Naduska",
+    "subtitle":"Especialista en Nutricion Integral,Calificacion en TRX, Entrenadora Personal, Bailarina Profesional y Especializacion en Perdida de Peso y en Ejercicios Correctivos.",
+    "resumen":"Nacida en la cuidad de Quebec en Canadá. Mi vida siempre ha estado influenciada por el deporte, música, baile y el tronar de los tambores. He participado en una variedad de festivales internacionales, teatros, escuelas y televisión.Poseo especializacion en ejercicio correctivo y perdida de peso otrogado por la National Academy of Sports and Medicine (NASM). Graduada de Health Coach de Nutricion Integral en el Institute for Integrative Nutrition (IIN). Para mi ‘’El equilibrio es la clave para triunfar” y “La salud es riqueza“.",
+    "readMore":"Leer Más"
+   },
 
-"login":{
+  "login":{
 
-},
+  },
 
-"holistic":{
+  "holistic":{
+    "header":"Sobre la Nutrición Holística",
+    "tittle":"Bienvenido a Health Care Nutrition",
+    "description":"Hemos sido el manual de 'Nutrición para el cuidado de la salud' más confiable durante 25 años, y estamos orgullosos de nuestra rica historia de proporcionar recursos nutricionales basados ​​en evidencia de los servicios de nutricionistas dietéticos registrados. Estamos tratando de construir un futuro mejor y más saludable para las personas. Nuestro personal está unido en un compromiso compartido para lograr una mejor salud para todos.",
+    "feature-title":"Características Especiales de Nutrición",
+    "feature":{
+      "nutrients":"Requerimientos de Nutrientes",
+      "glyceraldehydes":"Carga de Gliceraldehídos",
+      "diet":"Formas de Seguir una Dieta",
+      "circumstances":"Circunstancias Medicinales",
+      "index":"Índice de Gluceraldehídos",
+      "lifestyle":"Un Estilo de Vida Nutritivo"
+    },
+    "user-form":{
+        "man-form":{
+          "title":"Soy Hombre",
+          "button-title":"Haga clic aquí para llenar el formulario de hombre"
+        },
+        "woman-form":{
+          "title":"Soy Mujer",
+          "button-title":"Haga clic aquí para llenar el formulario de mujer"
+        }
 
-},
+    }
+  },
 
-"dance":{
+  "dance":{
 
-},
+  },
 
-"fitness":{
+  "fitness":{
 
-}
+  }
+
 }

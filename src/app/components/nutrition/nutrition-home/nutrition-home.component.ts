@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { UnderConstructionModalComponent } from '../../shared/under-construction-modal/under-construction-modal.component';
@@ -15,7 +16,9 @@ export class NutritionHomeComponent implements OnInit {
 
   manUrl="https://docs.google.com/forms/d/1VHIyAfXlPac1IcqzagkMzm4XuQTMLPka_Ff8N1bpQRI/edit";
   womenUrl="https://docs.google.com/forms/d/1VHIyAfXlPac1IcqzagkMzm4XuQTMLPka_Ff8N1bpQRI/edit";
-  constructor(public dialog: MatDialog) { }
+
+  constructor(public dialog: MatDialog,
+              private translate: TranslateService) { }
 
   ngOnInit() {
   }

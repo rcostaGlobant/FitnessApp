@@ -5,14 +5,45 @@
       "fitness":"Fitness",
       "dance":"Dance"
     }
-},
+  },
+  "about":{
+    "header":"WELCOME TO SPORTIFF",
+    "title-first":"About",
+    "title-name":"Naduska",
+    "subtitle":"Specialist in Integral Nutrition, Qualification in TRX, Personal Trainer, Professional Dancer and Specialization in Weight Loss and Corrective Exercises.",
+    "resumen":"Born in the city of Quebec in Canada. My life has always been influenced by sport, music, dance and the thunder of drums. I have participated in a variety of international festivals, theaters, schools and television. I specialize in corrective exercise and weight loss advocated by the National Academy of Sports and Medicine (NASM). Graduated from Health Coach of Integral Nutrition at the Institute for Integrative Nutrition (IIN). For me equilibrio ’Balance is the key to success” and “Health is wealth.",
+    "readMore":"Read More"
+  },
+
 
 "login":{
 
 },
 
 "holistic":{
+  "header":"About Holistic Nutrition",
+  "tittle":"Welcome To Health Care Nutrition",
+  "description":"We have been the most trusted “Health care Nutrition” manual for 25 years, and We are proud of our rich history of providing evidence-based nutrition resources from Registered Dietitian Nutritionists services. We are trying to build a better, healthier future for people. Our staff is united in a shared commitment achieving better health for everyone.",
+  "feature-title":"Nutrition Special Features",
+  "feature":{
+    "nutrients":"Nutrient requirements",
+    "glyceraldehydes":"Glyceraldehydes load",
+    "diet":"Ways to follow a diet",
+    "circumstances":"Medicinal circumstances",
+    "index":"Glyceraldehydes index",
+    "lifestyle":"A nutritious lifestyle"
+  },
+  "user-form":{
+      "man-form":{
+        "title":"I´m a Man",
+        "button-title":"Click here to fill put Man's Form!"
+      },
+      "woman-form":{
+        "title":"I´m a Woman",
+        "button-title":"Click here to fill out Woman's Form!"
+      }
 
+  }
 },
 
 "dance":{

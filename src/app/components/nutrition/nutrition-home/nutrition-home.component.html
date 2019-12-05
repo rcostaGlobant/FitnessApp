@@ -11,7 +11,7 @@
                 <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit explicabo odio officiis autem minima quibusdam.</p>
                 <div class="trainers-small mb-5 d-flex">
                 </div>
-                
+
                 <mat-checkbox (change)='onManChange($event)' color='primary' [(ngModel)]='isMan' > Hombre</mat-checkbox>
                 <mat-checkbox (change)='onWomanChange($event)' color='primary' [(ngModel)]='isWoman' > Mujer</mat-checkbox>
 
@@ -21,7 +21,7 @@
                 </div>
                 </div>
         </div>
-    
+
 </div-->
 <div class="container">
         <div  style="position: relative; left: 0px; box-sizing: border-box; width: 1220px; padding-left: 0px; padding-right: 0px;">
@@ -45,32 +45,32 @@
                                                                         <div class="tm-vc_cta3-content">
                                                                                 <header class="tm-vc_cta3-content-header tm-wrap">
                                                                                         <div class="tm-vc_cta3-headers tm-wrap-cell">
-                                                                                                <h4 class="tm-custom-heading ">About Holistic Nutrition</h4>
-                                                                                                <h2 class="tm-custom-heading ">Welcome To Health Care Nutrition</h2>
+                                                                                                <h4 class="tm-custom-heading ">{{'holistic.header' | translate}}</h4>
+                                                                                                <h2 class="tm-custom-heading ">{{'holistic.tittle' | translate}}</h2>
                                                                                         </div>
                                                                                 </header>
                                                                                 <div class="tm-cta3-content-wrapper">
-                                                                                        <p>We have been the most trusted “Health care Nutrition” manual for 25 years, and We are proud of our rich history of providing evidence-based nutrition resources from Registered Dietitian Nutritionists services. We are trying to build a better, healthier future for people. Our staff is united in a shared commitment achieving better health for everyone.</p>
+                                                                                        <p>{{'holistic.description' | translate}}</p>
                                                                                 </div>
                                                                         </div>
                                                                 </div>
                                                         </div>
                                                 </section>
                                         </div>
-                                        <h2 style="text-align:left;font-size:20px;line-height:30px;" class="">Nutrition Special Features</h2>
+                                        <h2 style="text-align:left;font-size:20px;line-height:30px;" class="">{{'holistic.feature-title' | translate}}</h2>
                                         <div class="row-inner row wpb_row inner row-fluid tm-list-margin">
                                                 <div class="wpb_column tm-column-inner column_container col-sm-6 ">
                                                 <div class="column-inner ">
                                                          <div class="wrapper">
                                                                  <ul  style="padding: 0;list-style:none">
                                                                          <li><i class="fa fa-angle-double-right icon-color"></i>
-                                                                                 <span class="" style="margin-left: 10px;">Nutrient requirements</span>
-                                                                        </li>
-                                                                        <li><i class="fa fa-angle-double-right icon-color"></i> 
-                                                                                <span class="" style="margin-left: 10px;">Glyceraldehydes load</span>
+                                                                                 <span class="" style="margin-left: 10px;">{{'holistic.feature.nutrients' | translate}}</span>
                                                                         </li>
                                                                         <li><i class="fa fa-angle-double-right icon-color"></i>
-                                                                                 <span class="" style="margin-left: 10px;">Ways to follow a diet</span>
+                                                                                <span class="" style="margin-left: 10px;">{{'holistic.feature.glyceraldehydes' | translate}}</span>
+                                                                        </li>
+                                                                        <li><i class="fa fa-angle-double-right icon-color"></i>
+                                                                                 <span class="" style="margin-left: 10px;">{{'holistic.feature.diet' | translate}}</span>
                                                                         </li>
                                                                 </ul>
                                                         </div>
@@ -80,14 +80,14 @@
                 <div class="vc_column-inner tm-responsive-custom-34887176">
                         <div class="wpb_wrapper">
                                 <ul class="" style="padding: 0; list-style:none">
-                                        <li><i class="tm-skincolor fa fa-angle-double-right icon-color"></i> 
-                                                <span class="tm-list-li-content" style="margin-left: 10px;">Medicinal circumstances</span>
-                                        </li>
-                                        <li><i class="tm-skincolor fa fa-angle-double-right icon-color"></i> 
-                                                <span class="tm-list-li-content" style="margin-left: 10px;">Glyceraldehydes index</span>
+                                        <li><i class="tm-skincolor fa fa-angle-double-right icon-color"></i>
+                                                <span class="tm-list-li-content" style="margin-left: 10px;">{{'holistic.feature.circumstances' | translate}}</span>
                                         </li>
                                         <li><i class="tm-skincolor fa fa-angle-double-right icon-color"></i>
-                                        <span class="tm-list-li-content" style="margin-left: 10px;">A nutritious lifestyle</span>
+                                                <span class="tm-list-li-content" style="margin-left: 10px;">{{'holistic.feature.index' | translate}}</span>
+                                        </li>
+                                        <li><i class="tm-skincolor fa fa-angle-double-right icon-color"></i>
+                                        <span class="tm-list-li-content" style="margin-left: 10px;">{{'holistic.feature.lifestyle' | translate}}</span>
                                         </li>
                                 </ul>
                         </div>
@@ -98,20 +98,20 @@
         <mat-tab style="scroll-margin-right: 50px;">
                 <ng-template mat-tab-label >
                 <i class="fas fa-male"></i>
-                I'm a Man
+                {{'holistic.user-form.man-form.title' | translate}}
                 </ng-template>
                 <div class="wrapper" style="margin-top: 50px;">
-                        <p class="hover-underline-animation">Click here to fill put Man's Form!</p>
+                        <p class="hover-underline-animation"> {{'holistic.user-form.man-form.button-title' | translate}}</p>
                 </div>
         </mat-tab>
 
         <mat-tab>
                 <ng-template mat-tab-label>
                 <i class="fas fa-female"></i>
-                I'm a Woman
+                {{'holistic.user-form.woman-form.title' | translate}}
                 </ng-template>
                 <div class="wrapper" style="margin-top: 50px;">
-                        <p class="hover-underline-animation">Click here to fill out Woman's Form!</p>
+                        <p class="hover-underline-animation"> {{'holistic.user-form.woman-form.button-title' | translate}}</p>
                 </div>
         </mat-tab>
 
@@ -120,5 +120,5 @@
 </div>
 </div>
 </div>
- </div> 
+ </div>
 </div>
