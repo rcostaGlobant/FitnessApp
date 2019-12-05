@@ -5,7 +5,7 @@ export class AppConfig {
   navColor: string;
   defaultLanguage: string;
   navLinks: NavLinks;
-  availableLanguages: AvailableLangs;
+  availableLanguages: AvailableLangs[];
 }
 
 

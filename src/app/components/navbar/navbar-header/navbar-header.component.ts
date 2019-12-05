@@ -1,3 +1,5 @@
+import { AppConfig } from './../../../models/config/config';
+import { ConfigService } from './../../../services/config/config.service';
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService, SocialUser } from 'angularx-social-login';
@@ -15,13 +17,22 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
   loggedUser: boolean;
   user: SocialUser;
   private unsubscribe$= new Subject<void>();
-
+  configuration : AppConfig;
+  selected: string;
   constructor(private authService: AuthService,
-              public translate: TranslateService) {
-                  translate.addLangs(['en','fr','es']);
-                  translate.setDefaultLang('en');
+              private translate: TranslateService,
+              private configService: ConfigService) {
+                  this.configuration = this.configService.getConfig();
+                  const languages = this.configuration[4].availableLanguages.map(language => {
+                    return language.name;
+                  });
+                  translate.addLangs(languages);
+                  const lang= translate.getLangs();
+                  translate.setDefaultLang(this.configuration[2].defaultLanguage);
                   const browserLang=translate.getBrowserLang();
-                  translate.use(browserLang.match(/en|fr/)? browserLang : 'en');
+                  this.selected=this.configuration[2].defaultLanguage;
+                  translate.use(browserLang.match(/en|fr|es/)? browserLang : this.configuration[2].defaultLanguage);
+                  //translate.use(this.selected);
 
               }
 
