@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, APP_INITIALIZER } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import {environment} from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './modules/core/core.module';
@@ -16,6 +16,9 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { UserAuthenticationComponent } from './components/shared/user-authentication/user-authentication.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ConfigService } from './services/config/config.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
 
@@ -51,6 +54,9 @@ const appConfiguration=(config: ConfigService)=>{
   imports: [
     BrowserModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.FIREBASE_CONFIG),
+    AngularFirestoreModule,
+    AngularFireDatabaseModule, //for database
     BrowserAnimationsModule,
     FontAwesomeModule,
     CoreModule,
