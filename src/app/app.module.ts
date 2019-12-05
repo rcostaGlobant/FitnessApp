@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, APP_INITIALIZER } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { UserAuthenticationComponent } from './components/shared/user-authentication/user-authentication.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { ConfigService } from './services/config/config.service';
 
 
 
@@ -37,6 +38,11 @@ export function HttpLoaderFactory(htpp: HttpClient){
   return new TranslateHttpLoader(htpp);
 }
 
+const appConfiguration=(config: ConfigService)=>{
+  return()=>{
+    return config.loadAppConfig();
+  }
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -58,8 +64,16 @@ export function HttpLoaderFactory(htpp: HttpClient){
     AppRoutingModule
   ],
   providers: [
-    {provide: AuthServiceConfig,
-    useFactory: provideConfig
+    ConfigService,
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    },
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appConfiguration,
+      multi:true,
+      deps:[ConfigService]
     }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   entryComponents: [UnderConstructionModalComponent, DanceGalleryModalComponent, UserAuthenticationComponent],
