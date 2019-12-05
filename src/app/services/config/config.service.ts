@@ -26,7 +26,7 @@ export class ConfigService {
     .pipe(first())
     .toPromise()
     .then(res=>{
-      this.AppConfig=res;
+      this.AppConfig = res[0];
       console.log(this.AppConfig);
     });
   }

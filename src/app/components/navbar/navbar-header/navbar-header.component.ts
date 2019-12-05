@@ -23,13 +23,13 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
               private translate: TranslateService,
               private configService: ConfigService) {
                   this.configuration = this.configService.getConfig();
-                  const languages = this.configuration[4].availableLanguages.map(language => {
-                    return language.name;
+                  const languages = this.configuration.availableLanguages.map(language => {
+                    return language.langName;
                   });
                   translate.addLangs(languages);
-                  translate.setDefaultLang(this.configuration[2].defaultLanguage);
+                  translate.setDefaultLang(this.configuration.defaultLanguage);
                   const browserLang = translate.getBrowserLang();
-                  this.selected = browserLang.match(/en|fr|es/) ? browserLang : this.configuration[2].defaultLanguage;
+                  this.selected = browserLang.match(/en|fr|es/) ? browserLang : this.configuration.defaultLanguage;
                   translate.use(this.selected);
 
               }
