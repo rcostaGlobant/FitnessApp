@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from "angularx-social-login";
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { SpinnerVisibilityService, Spinkit } from 'ng-http-loader';
 
 @Component({
   selector: 'app-root',
@@ -10,8 +11,14 @@ import { takeUntil } from 'rxjs/operators';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'BeFitness';
+  public spinkit = Spinkit;
+
   private unsubscribe$= new Subject<void>();
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              ) {
+
+
+              }
 
   ngOnInit(): void {
     this.authService.authState

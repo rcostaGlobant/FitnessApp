@@ -19,6 +19,7 @@ import { ConfigService } from './services/config/config.service';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { NgHttpLoaderModule } from 'ng-http-loader';
 
 
 
@@ -58,6 +59,7 @@ const appConfiguration=(config: ConfigService)=>{
     AngularFirestoreModule,
     AngularFireDatabaseModule, //for database
     BrowserAnimationsModule,
+    NgHttpLoaderModule.forRoot(),
     FontAwesomeModule,
     CoreModule,
     SocialLoginModule,
