@@ -5,11 +5,10 @@ import { CommonModule } from '@angular/common';
 import { AuthRoutingModule } from './auth-routing.module';
 import { UserLogInComponent } from '../../../components/auth/user-log-in/user-log-in.component';
 import { SharedModule } from '../../shared/shared.module';
-import { UserRegisterComponent } from '../../../components/auth/user-register/user-register.component';
 
 
 @NgModule({
-  declarations: [UserLogInComponent, UserRegisterComponent],
+  declarations: [UserLogInComponent],
   imports: [
     CommonModule,
     FormsModule,

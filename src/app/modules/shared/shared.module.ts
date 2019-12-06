@@ -5,11 +5,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UnderConstructionModalComponent } from '../../components/shared/under-construction-modal/under-construction-modal.component';
 import { DanceGalleryModalComponent } from 'src/app/components/dance/dance-gallery-modal/dance-gallery-modal.component';
 import { UserAuthenticationComponent } from '../../components/shared/user-authentication/user-authentication.component';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [UnderConstructionModalComponent,DanceGalleryModalComponent, UserAuthenticationComponent],
   imports: [
     CommonModule,
+    RouterModule,
+    ReactiveFormsModule,
     AngularMaterialModule,
     NgbModule
   ],

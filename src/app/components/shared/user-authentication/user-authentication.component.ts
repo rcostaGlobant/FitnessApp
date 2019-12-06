@@ -2,6 +2,7 @@ import { MatDialogRef } from '@angular/material';
 import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-authentication',
@@ -9,11 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-authentication.component.scss']
 })
 export class UserAuthenticationComponent implements OnInit {
-
-  constructor(private authService: AuthService, private router: Router,
+  userRegisteringForm: FormGroup;
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService,
               public dialogRef: MatDialogRef<UserAuthenticationComponent>) { }
 
   ngOnInit() {
+    this.userRegisteringForm = this.formBuilder.group({
+      clientName: ['', Validators.required],
+      clientUser: ['', [Validators.required, Validators.minLength(6)]],
+      clientPassword: ['', [Validators.required, Validators.minLength(6)]],
+      clientPassword2: ['', [Validators.required, Validators.minLength(6)]],
+      clientPhoneNumber: ['', [Validators.required, Validators.minLength(6)]],
+      clientEmail: ['', [Validators.required, Validators.email]],
+      clientAdress: ['', Validators.required]
+    });
   }
 
   loginWithGoogle(): void{
