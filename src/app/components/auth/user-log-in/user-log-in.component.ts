@@ -1,10 +1,9 @@
 import { Subject } from 'rxjs';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "angularx-social-login";
-import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserAuthenticationComponent } from '../../shared/user-authentication/user-authentication.component';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 
 @Component({
@@ -19,7 +18,7 @@ export class UserLogInComponent implements OnInit {
 
   constructor(matDialog: MatDialog,
               activatedRoute: ActivatedRoute,
-              router: Router) {
+              private router: Router) {
 
         if(this.currentDialog){
           this.currentDialog.close();
@@ -36,26 +35,6 @@ export class UserLogInComponent implements OnInit {
   ngOnInit() {
   }
 
-  /*loginWithGoogle(): void{
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(this.goToMainPage, this.errorRequest);
-
-  }
-
-  loginWithFacebook(){
-    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(this.goToMainPage, this.errorRequest);
-
-  }
-
-  signOut(): void {
-    this.authService.signOut();
-  }
 
 
-    goToMainPage=(res)=>{
-      //aqui con el usuario logueado busco sus programas y su configuracion asociada
-      this.router.navigateByUrl('/home');
-    };
-
-    errorRequest=(res)=>this.router.navigateByUrl('/home');
-    */
 }

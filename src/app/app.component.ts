@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AuthService } from "angularx-social-login";
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { SpinnerVisibilityService, Spinkit } from 'ng-http-loader';
@@ -13,26 +12,10 @@ export class AppComponent implements OnInit, OnDestroy {
   title = 'BeFitness';
   public spinkit = Spinkit;
 
-  private unsubscribe$= new Subject<void>();
-  constructor(private authService: AuthService,
-              ) {
+  constructor() { }
 
-
-              }
-
-  ngOnInit(): void {
-    this.authService.authState
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe((user) => {
-      console.log("Hay user");
-      console.log(user);
-
-      //hacer el pedido de los datos usuario a la api para mostrarlos
-    });
-  }
+  ngOnInit(): void {}
 
   ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
   }
 }

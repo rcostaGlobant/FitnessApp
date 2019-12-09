@@ -9,12 +9,16 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FitnessLogoNameComponent } from '../../components/navbar/fitness-logo-name/fitness-logo-name.component';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [NavbarHeaderComponent, CarouselNavbarComponent, MenuNavbarComponent, NavbarFooterComponent, FitnessLogoNameComponent],
   imports: [
     CommonModule,
     SharedModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule ,
     TranslateModule,
     RouterModule,
     FontAwesomeModule
