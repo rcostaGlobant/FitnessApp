@@ -24,7 +24,6 @@ export class UserAuthenticationComponent implements OnInit {
   ngOnInit() {
     this.userRegisteringForm = this.formBuilder.group({
       clientName: ['', Validators.required],
-      clientUser: ['', [Validators.required, Validators.minLength(6)]],
       clientPassword: ['', [Validators.required, Validators.minLength(6)]],
       clientPassword2: ['', [Validators.required, Validators.minLength(6)]],
       clientPhoneNumber: ['', [Validators.required, Validators.minLength(6)]],
