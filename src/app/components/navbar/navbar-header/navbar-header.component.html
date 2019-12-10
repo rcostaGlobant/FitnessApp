@@ -26,10 +26,10 @@
                             <li class="nav-item">
                                 <a class="nav-link" [routerLink]="['/dance']">{{'navbar.navLink.dance' | translate}}</a>
                             </li>
-                            <li class="nav-item" *ngIf="loggedUser" >
+                            <li class="nav-item" *ngIf="userIsLogged" >
                                 <a class="nav-link" href="#">My Orders</a>
                             </li>
-                            <li class="nav-item" *ngIf="loggedUser"  (click)="signOut()" >
+                            <li class="nav-item" *ngIf="userIsLogged"  (click)="signOut()" >
                                 <a class="nav-link"><i class="fas fa-outdent"></i>Log Out</a>
                             </li>
 
@@ -47,12 +47,12 @@
                     <span class="nav-item">
                             <a class="nav-link" href="#"><i class="fab fa-youtube"></i></a>
                     </span>
-                    <span class="nav-item" *ngIf="!loggedUser">
+                    <span class="nav-item" *ngIf="!userIsLogged">
                         <a class="nav-link" [routerLink]="['/login']">  <i class="fas fa-sign-in-alt"></i></a>
                     </span>
-                    <div *ngIf="loggedUser">
+                    <div *ngIf="userIsLogged">
                         <span class="nav-item"  >
-                            <img src="{{user.photoUrl}}" style="border-radius: 50%;
+                            <img src="{{userImg}}" style="border-radius: 50%;
                             width: 36px;">
                         </span>
                     </div>

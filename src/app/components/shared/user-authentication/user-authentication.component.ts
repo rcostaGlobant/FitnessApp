@@ -11,9 +11,15 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class UserAuthenticationComponent implements OnInit {
   userRegisteringForm: FormGroup;
+  userSingInForm: FormGroup;
+  authError:any;
+  userNeedToRegister :boolean;
+
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
-              public dialogRef: MatDialogRef<UserAuthenticationComponent>) { }
+              public dialogRef: MatDialogRef<UserAuthenticationComponent>) {
+                this.userNeedToRegister= false;
+               }
 
   ngOnInit() {
     this.userRegisteringForm = this.formBuilder.group({
@@ -25,23 +31,55 @@ export class UserAuthenticationComponent implements OnInit {
       clientEmail: ['', [Validators.required, Validators.email]],
       clientAdress: ['', Validators.required]
     });
+
+    this.userSingInForm = this.formBuilder.group({
+      userEmail: ['', [Validators.required,  Validators.email ]],
+      userPassword: ['', [Validators.required, Validators.minLength(6)]]
+    });
+
+    this.authService.authErrorMsg$.subscribe(data => {
+      this.authError = data;
+    })
+
   }
 
-  loginWithGoogle(): void{
+  loginWithGoogle(): void {
     this.authService.singInWithGoogle().then(this.goToMainPage, this.errorRequest);
 
   }
 
-  loginWithFacebook(){
+  createUser(values): void {
+    this.authService.createUser(values).then(this.goToMainPage, this.errorRequest);
+  }
+
+  loginWitEmailAndUserPassword(): void {
+    this.authService.singInWithEmailAndUserPass(this.userSingInForm.controls.userEmail.value,
+                                                this.userSingInForm.controls.userPassword.value)
+                                                .then(this.goToMainPage, this.errorRequest);
+
+  }
+
+  userWantToRegister() {
+    this.authError= null;
+    this.userNeedToRegister= true;
+   }
+
+  loginWithFacebook() {
    this.authService.singInWithFacebook().then(this.goToMainPage, this.errorRequest);
 
   }
 
-  goToMainPage=(res)=>{
+  goToMainPage = (res) => {
     //aqui con el usuario logueado busco sus programas y su configuracion asociada
     this.dialogRef.close();
-  };
+  }
 
-  errorRequest=(res)=>this.dialogRef.close();
+  errorRequest = (res) => {
+    console.log(res);
+    this.authError= res;
+    this.userNeedToRegister ? this.userRegisteringForm.reset()  : this.userSingInForm.reset();
+
+    //this.dialogRef.close();
+  };
 
 }

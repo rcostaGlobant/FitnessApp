@@ -16,11 +16,11 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 export class NavbarHeaderComponent implements OnInit, OnDestroy {
 
-  loggedUser= false;
-
+  userIsLogged = false;
   private unsubscribe$= new Subject<void>();
   configuration : AppConfig;
   selected: string;
+  userImg:any
 
   constructor(private translate: TranslateService,
               private authService: AuthService,
@@ -29,20 +29,29 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
                   const languages = this.configuration.availableLanguages.map(language => {
                     return language.langName;
                   });
-                  translate.addLangs(languages);
-                  translate.setDefaultLang(this.configuration.defaultLanguage);
-                  const browserLang = translate.getBrowserLang();
+                  this.translate.addLangs(languages);
+                  this.translate.setDefaultLang(this.configuration.defaultLanguage);
+                  const browserLang = this.translate.getBrowserLang();
                   this.selected = browserLang.match(/en|fr|es/) ? browserLang : this.configuration.defaultLanguage;
-                  translate.use(this.selected);
+                  this.translate.use(this.selected);
 
               }
 
   ngOnInit(): void {
-    this.authService.$user
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe((user) => {
-      this.loggedUser = (user != null);
+    this.getCurrentUser();
+  }
 
+  getCurrentUser(){
+    this.authService.isUserLogIn()
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe(userAuth => {
+      if(userAuth) {
+        console.log(userAuth);
+        this.userIsLogged = true;
+        this.userImg = userAuth.photoURL;
+      } else {
+        this.userIsLogged = false;
+      }
     });
   }
 

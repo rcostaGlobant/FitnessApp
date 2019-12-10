@@ -219,15 +219,13 @@ input {
 }
 
 .forgot-pass {
-  margin-top: 15px;
   text-align: center;
   font-size: 12px;
-  color: #cfcfcf;
+  color: #33b5e5;
 }
 
 .submit {
   margin-top: 40px;
-    margin-bottom: 20px;
     background: #fff;
     text-transform: uppercase;
     border: 2px solid #33b5e5;
@@ -291,4 +289,11 @@ input {
 
 .left-alig{
   text-align: left !important;
+}
+
+.disabled-btn{
+  background-color:#adadad;
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  cursor: context-menu;
 }
