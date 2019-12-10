@@ -95,7 +95,7 @@
                     <input type="text" class="left-alig" placeholder="Address"  formControlName="clientAdress">
                   </div>
 
-                  <button type="submit" class="btn btn-block btn-success" style="background-color: #28a745;">Add User</button>
+                  <button type="submit" class="btn btn-block btn-success" style="background-color: #28a745;" [disabled]="!userRegisteringForm.valid">Add User</button>
                 </form>
               </div>
             </div>

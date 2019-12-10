@@ -3,6 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-user-authentication',
@@ -38,7 +39,29 @@ export class UserAuthenticationComponent implements OnInit {
 
     this.authService.authErrorMsg$.subscribe(data => {
       this.authError = data;
-    })
+    });
+
+    this.onChanges();
+
+  }
+
+  onChanges(): void {
+    this.userRegisteringForm.get('clientPassword').valueChanges
+      .pipe(debounceTime(1000))
+      .subscribe(val => {
+        if(this.userRegisteringForm.controls.clientPassword2.value && this.userRegisteringForm.controls.clientPassword.value){
+          console.log("Siii password");
+        }
+      });
+
+    this.userRegisteringForm.get('clientPassword2').valueChanges
+    .pipe(debounceTime(1000))
+    .subscribe(val => {
+      if(this.userRegisteringForm.controls.clientPassword.value  && this.userRegisteringForm.controls.clientPassword2.value){
+        console.log("Siii password 2");
+      }
+
+    });
 
   }
 
