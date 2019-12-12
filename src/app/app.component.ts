@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
-import { SpinnerVisibilityService, Spinkit } from 'ng-http-loader';
+import { AuthService } from './services/auth/auth.service';
+import { map, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +10,38 @@ import { SpinnerVisibilityService, Spinkit } from 'ng-http-loader';
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'BeFitness';
-  public spinkit = Spinkit;
+  private unsubscribe$= new Subject<void>();
+  user$ : any;
 
-  constructor() { }
+  constructor(private authService: AuthService) {
 
-  ngOnInit(): void {}
+
+  }
+
+  ngOnInit(): void {
+   this.authService.isRegularUser().subscribe(user=>{
+    this.user$=!user.isAdmin;
+
+   });
+  }
+
+  isUserAdmin(){
+    this.authService.isRegularUser()
+    .pipe(takeUntil(this.unsubscribe$))
+    .subscribe(userAuth => {
+      if(!!userAuth /*&& !!userAuth.data()*/) {
+       console.log("App COmponent", userAuth);
+
+        //this.userImg = userAuth.photoURL;
+      } else {
+        console.log("App COmponent", userAuth);
+      }
+    });
+  }
 
   ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
+
 }

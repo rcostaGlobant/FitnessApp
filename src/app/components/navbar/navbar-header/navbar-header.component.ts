@@ -2,7 +2,6 @@ import { AppConfig } from './../../../models/config/config';
 import { ConfigService } from './../../../services/config/config.service';
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SocialUser } from 'angularx-social-login';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
@@ -45,10 +44,9 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
     this.authService.isUserLogIn()
     .pipe(takeUntil(this.unsubscribe$))
     .subscribe(userAuth => {
-      if(userAuth) {
-        console.log(userAuth);
+      if(!!userAuth /*&& !!userAuth.data()*/) {
         this.userIsLogged = true;
-        this.userImg = userAuth.photoURL;
+        //this.userImg = userAuth.photoURL;
       } else {
         this.userIsLogged = false;
       }

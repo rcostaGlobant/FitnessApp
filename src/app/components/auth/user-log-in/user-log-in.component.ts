@@ -25,8 +25,12 @@ export class UserLogInComponent implements OnInit {
         }
         this.currentDialog= matDialog.open(UserAuthenticationComponent);
         this.currentDialog.afterClosed().subscribe(res=>{
-          console.log("Dialog closed");
-          router.navigateByUrl('/');
+          console.log("Dialog closed", res);
+          if ((!!res && !!res.isAdmin )) {
+           router.navigate(['/dashboard']);
+          } else {
+            router.navigateByUrl('/');
+          }
         });
   }
 

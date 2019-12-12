@@ -13,13 +13,13 @@ import { debounceTime } from 'rxjs/operators';
 export class UserAuthenticationComponent implements OnInit {
   userRegisteringForm: FormGroup;
   userSingInForm: FormGroup;
-  authError:any;
-  userNeedToRegister :boolean;
+  authError: any;
+  userNeedToRegister: boolean;
 
   constructor(private formBuilder: FormBuilder,
               private authService: AuthService,
               public dialogRef: MatDialogRef<UserAuthenticationComponent>) {
-                this.userNeedToRegister= false;
+                this.userNeedToRegister = false;
                }
 
   ngOnInit() {
@@ -49,25 +49,21 @@ export class UserAuthenticationComponent implements OnInit {
     this.userRegisteringForm.get('clientPassword').valueChanges
       .pipe(debounceTime(1000))
       .subscribe(val => {
-        if(this.userRegisteringForm.controls.clientPassword2.value && this.userRegisteringForm.controls.clientPassword.value){
+        if(this.userRegisteringForm.controls.clientPassword2.value && this.userRegisteringForm.controls.clientPassword.value) {
           console.log("Siii password");
         }
       });
-
     this.userRegisteringForm.get('clientPassword2').valueChanges
     .pipe(debounceTime(1000))
     .subscribe(val => {
-      if(this.userRegisteringForm.controls.clientPassword.value  && this.userRegisteringForm.controls.clientPassword2.value){
+      if(this.userRegisteringForm.controls.clientPassword.value  && this.userRegisteringForm.controls.clientPassword2.value) {
         console.log("Siii password 2");
       }
-
     });
-
   }
 
   loginWithGoogle(): void {
     this.authService.singInWithGoogle().then(this.goToMainPage, this.errorRequest);
-
   }
 
   createUser(values): void {
@@ -78,22 +74,20 @@ export class UserAuthenticationComponent implements OnInit {
     this.authService.singInWithEmailAndUserPass(this.userSingInForm.controls.userEmail.value,
                                                 this.userSingInForm.controls.userPassword.value)
                                                 .then(this.goToMainPage, this.errorRequest);
-
   }
 
   userWantToRegister() {
     this.authError= null;
-    this.userNeedToRegister= true;
+    this.userNeedToRegister = true;
    }
 
   loginWithFacebook() {
    this.authService.singInWithFacebook().then(this.goToMainPage, this.errorRequest);
-
   }
 
   goToMainPage = (res) => {
     //aqui con el usuario logueado busco sus programas y su configuracion asociada
-    this.dialogRef.close();
+    this.dialogRef.close(res);
   }
 
   errorRequest = (res) => {
