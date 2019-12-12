@@ -1,1 +1,143 @@
-<p>dashboard-admin-home works!</p>
+<mat-sidenav-container fullscreen>
+  <mat-sidenav mode="side" #sidenav opened position="start">
+    <a class="navigation-item" mat-list-item >
+      <i class="fas fa-cog">
+        <span >Configuration</span>
+      </i>
+    </a>
+    <div >
+        <div >
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a><i class="fas fa-bars"></i>Navbar</a></li>
+            <li class="list-group-item"><a><i class="fas fa-atlas"></i>Biography</a></li>
+            <li class="list-group-item"><a><i class="fas fa-lock"></i>Login Settings</a></li>
+            <li class="list-group-item"><a><i class="fas fa-cogs"></i>App Seetings</a></li>
+            <li class="list-group-item"><a><i class="fas fa-globe"></i>Translations</a></li>
+          </ul>
+        </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar  color="custom" style="border-bottom: 1px solid #c8ced3;">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+        <div class="menus">
+          <a>DashBoard</a>
+          <a>Training Programs</a>
+          <a>Holistic Nutrition</a>
+          <a>Dance</a>
+          <a>Users</a>
+          <a>Payments</a>
+        </div>
+          <span class="toolbar-spacer"></span>
+          <mat-nav-list class="navigation-list">
+            <a class="navigation-item" mat-list-item routerLink="/route1" routerLinkActive="active">
+              <i class="far fa-bell">
+                <span class='badge badge-secondary'>21</span>
+              </i>
+            </a>
+            <a class="navigation-item" mat-list-item routerLink="/route1" routerLinkActive="active">
+           <img src="{{userImg}}" alt="" style="border-radius: 50%;width: 40px;">
+            </a>
+
+            <mat-divider class="navigation-divider"></mat-divider>
+            <a class="navigation-item sign-out" mat-list-item  routerLinkActive="active" (click)="signOut()" style="cursor: pointer !important;">
+              <i class="fas fa-power-off">
+                <span >LogOut</span>
+              </i>
+            </a>
+          </mat-nav-list>
+
+    </mat-toolbar>
+
+    <div class="main-content">
+
+      <div class="animated fadeIn">
+        <div class="row">
+          <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-info">
+              <div class="card-body pb-0">
+                <button type="button" class="btn btn-transparent p-0 float-right">
+                  <i class="icon-location-pin"></i>
+                </button>
+                <div class="text-value">9.823</div>
+                <div>Members online</div>
+              </div>
+              <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+
+              </div>
+            </div>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-primary">
+              <div class="card-body pb-0">
+                <div class="btn-group float-right" dropdown>
+                  <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+                    <i class="icon-settings"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+                <div class="text-value">9.823</div>
+                <div>Members online</div>
+              </div>
+              <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+
+              </div>
+            </div>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-warning">
+              <div class="card-body pb-0">
+                <div class="btn-group float-right" dropdown>
+                  <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+                    <i class="icon-settings"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+                <div class="text-value">9.823</div>
+                <div>Members online</div>
+              </div>
+              <div class="chart-wrapper mt-3" style="height:70px;">
+
+              </div>
+            </div>
+          </div><!--/.col-->
+          <div class="col-sm-6 col-lg-3">
+            <div class="card text-white bg-danger">
+              <div class="card-body pb-0">
+                <div class="btn-group float-right" dropdown>
+                  <button type="button" class="btn btn-transparent dropdown-toggle p-0" dropdownToggle>
+                    <i class="icon-settings"></i>
+                  </button>
+                  <div class="dropdown-menu dropdown-menu-right" *dropdownMenu>
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                </div>
+                <div class="text-value">9.823</div>
+                <div>Members online</div>
+              </div>
+              <div class="chart-wrapper mt-3 mx-3" style="height:70px;">
+
+              </div>
+            </div>
+          </div><!--/.col-->
+        </div>
+
+      </div>
+
+    </div>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
