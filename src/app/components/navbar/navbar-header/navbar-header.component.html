@@ -50,9 +50,9 @@
                     <span class="nav-item" *ngIf="!(currentUser$  | async)">
                         <a class="nav-link" [routerLink]="['/login']">  <i class="fas fa-sign-in-alt"></i></a>
                     </span>
-                    <div *ngIf="currentUser$  | async">
+                    <div *ngIf="currentUser$  | async as user">
                         <span class="nav-item"  >
-                            <img src="{{userImg}}" style="border-radius: 50%;
+                            <img src="{{user?.photoURL}}" style="border-radius: 50%;
                             width: 36px;">
                         </span>
                     </div>
