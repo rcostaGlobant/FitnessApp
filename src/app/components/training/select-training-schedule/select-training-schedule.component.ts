@@ -13,36 +13,26 @@ import { Observable } from 'rxjs';
 export class SelectTrainingScheduleComponent implements OnInit {
 
   choosenTime: any;
-  trainig: Training;
+  trainig: any;
   selectedDate: any;
 
   constructor(private trainingService: TrainingService) {
-    this.trainig = new Training();
+    this.trainig = this.trainingService.training$;
   }
 
   ngOnInit() {
   }
 
 
-
   onSelect(event) {
     this.selectedDate = event;
-    this.trainig.trainingBeginDate = this.selectedDate.toLocaleString();
-    this.trainig.trainingEndDate = this.selectedDate.toLocaleString();
-    if(!!this.choosenTime) {
-      this.createTraining(this.trainig);
-    }
+    this.trainingService.updateTrainingDate(this.selectedDate);
   }
 
   timeChanged() {
-    this.trainig.trainingUserHour = this.choosenTime;
     if(!!this.selectedDate) {
-      this.createTraining(this.trainig);
+      this.trainingService.updateTrainingTime(this.choosenTime);
     }
-  }
-
-  createTraining(training) {
-    this.trainingService.createOrUpdateNewTraining(training);
   }
 
 }

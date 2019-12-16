@@ -43,18 +43,14 @@ export class UserTrainingInfoComponent implements OnInit,OnDestroy {
 
 
   onSubmit(){
-    if(this.userTrainingForm.valid){
+
       let userInfo = new UserTrainingInfo();
       userInfo.userFullName = this.f.fullName.value;
       userInfo.userPhone = this.f.phone.value;
       userInfo.userEmail = this.f.email.value;
       userInfo.userMessage = this.f.message.value;
-      if(!!this.training){
-        this.training.userInfo = userInfo;
-        this.trainingService.createOrUpdateNewTraining(this.training);
-      }
+      this.trainingService.updateUserInfo(userInfo);
 
-    }
   }
 
   ngOnDestroy(): void {

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { debounceTime } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-authentication',
@@ -37,9 +38,7 @@ export class UserAuthenticationComponent implements OnInit {
       userPassword: ['', [Validators.required, Validators.minLength(6)]]
     });
 
-    this.authService.authErrorMsg$.subscribe(data => {
-      this.authError = data;
-    });
+    //this.authError = this.authService.authErrorMsg$();
 
     this.onChanges();
 

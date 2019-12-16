@@ -11,10 +11,9 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   templateUrl: './user-log-in.component.html',
   styleUrls: ['./user-log-in.component.scss']
 })
-export class UserLogInComponent implements OnInit {
+export class UserLogInComponent {
 
   currentDialog: MatDialogRef<UserAuthenticationComponent> = null;
-  destroy= new Subject<any>();
 
   constructor(matDialog: MatDialog,
               activatedRoute: ActivatedRoute,
@@ -34,8 +33,6 @@ export class UserLogInComponent implements OnInit {
         });
   }
 
-  ngOnInit() {
-  }
 
 
 

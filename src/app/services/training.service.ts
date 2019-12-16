@@ -1,3 +1,5 @@
+import { UserTrainingInfo } from './../models/training/user-training-info/user-training-info';
+
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Training } from '../models/training/training/training';
@@ -7,31 +9,46 @@ import { Training } from '../models/training/training/training';
 })
 export class TrainingService {
 
-  /*private trainingSource: BehaviorSubject<Training> = new BehaviorSubject<Training>(undefined);
-  public training$ = this.trainingSource.asObservable();*/
+  private defaultTraining: Training = {
+    trainingBeginDate: new Date(),
+    trainingEndDate: new Date(),
+    trainingUserHour: 0,
+    userInfo: null
+  };
 
-  private trainingSubject = new BehaviorSubject(undefined);
-  private training: Training;
+  private trainingBehaviorSubject = new BehaviorSubject<Training>(this.defaultTraining);
+  training$ = this.trainingBehaviorSubject.asObservable();
 
   constructor() { }
 
   getTraining(): Observable<Training> {
-    return this.trainingSubject.asObservable();
+    return this.trainingBehaviorSubject.asObservable();
   }
 
-  private refresh() {
-    // Emitir los nuevos valores para que todos los que dependan se actualicen.
-    this.trainingSubject.next(this.training);
+
+  updateTrainingDate(date: Date){
+    if( this.defaultTraining.trainingBeginDate.getTime() <= date.getTime())
+    {
+      this.defaultTraining.trainingEndDate = date;
+      this.trainingBehaviorSubject.next(this.defaultTraining);
+    }
+    else{
+      this.trainingBehaviorSubject.next(this.defaultTraining);
+    }
   }
 
-  createOrUpdateNewTraining(training: Training) {
-    /**
-    * Evitar hacer this.user.push() pues estaríamos modificando los valores directamente,
-    * se debe generar un nuevo array !!!!.
-    */
-    this.training = training;
-    this.refresh();
+  updateUserInfo(userInfo: UserTrainingInfo){
+    this.defaultTraining.userInfo = userInfo;
+    this.trainingBehaviorSubject.next(this.defaultTraining);
   }
+
+
+  updateTrainingTime(date: any){
+    this.defaultTraining.trainingUserHour = date;
+    this.trainingBehaviorSubject.next(this.defaultTraining);
+
+  }
+
 
 
 }

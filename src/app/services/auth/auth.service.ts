@@ -30,7 +30,7 @@ export class AuthService {
       this.insertOrUpdateUserData(userCredentials)
     })
     .catch((error) => {
-      this.eventAuthErrorMsg.next(error);
+      return of(error);
     });
   }
 

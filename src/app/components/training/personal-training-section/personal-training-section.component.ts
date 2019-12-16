@@ -1,4 +1,4 @@
-import { Training } from 'src/app/models/training/training/training';
+import { Training } from './../../../models/training/training/training';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { TrainingService } from 'src/app/services/training.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -16,7 +16,7 @@ export class PersonalTrainingSectionComponent implements OnInit, OnDestroy {
   toDate: any;
   hourSelected: any;
   hasToPay: boolean;
-  training: Training;
+  training$: Observable<Training>;
   private unsubscribe$= new Subject<void>();
 
   constructor(private trainingService: TrainingService,
@@ -25,15 +25,11 @@ export class PersonalTrainingSectionComponent implements OnInit, OnDestroy {
               }
 
   ngOnInit() {
-    this.trainingService.getTraining()
-    .pipe(takeUntil(this.unsubscribe$)) //desuscribirse para evitar memory leaks
-    .subscribe( (training: Training)=>{
-      this.training = training;
-    });
+    this.training$ = this.trainingService.training$;
   }
 
   navigateUrl(){
-    if(!!this.training){
+    if(!!this.training$){
       if(this.router.url.includes('schedule')){
         this.router.navigate(["./user-info"], {relativeTo: this.activeRoute});
       }
