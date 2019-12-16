@@ -1,27 +1,25 @@
 import { AppConfig } from './../../../models/config/config';
 import { ConfigService } from './../../../services/config/config.service';
-
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-navbar-header',
   templateUrl: './navbar-header.component.html',
-  styleUrls: ['./navbar-header.component.scss']
+  styleUrls: ['./navbar-header.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
-export class NavbarHeaderComponent implements OnInit, OnDestroy {
+export class NavbarHeaderComponent implements OnInit {
 
-  userIsLogged = false;
-  private unsubscribe$= new Subject<void>();
-  configuration : AppConfig;
+  configuration: AppConfig;
   selected: string;
-  userImg:any
+  private currentUserBehaviorSubject = new BehaviorSubject<any>(null);
+  currentUser$ = this.currentUserBehaviorSubject.asObservable() ;
 
-  constructor(private translate: TranslateService,
+  constructor(public translate: TranslateService,
               private authService: AuthService,
               private configService: ConfigService) {
                   this.configuration = this.configService.getConfig();
@@ -37,20 +35,7 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
               }
 
   ngOnInit(): void {
-    this.getCurrentUser();
-  }
-
-  getCurrentUser(){
-    this.authService.isUserLogIn()
-    .pipe(takeUntil(this.unsubscribe$))
-    .subscribe(userAuth => {
-      if(!!userAuth /*&& !!userAuth.data()*/) {
-        this.userIsLogged = true;
-        //this.userImg = userAuth.photoURL;
-      } else {
-        this.userIsLogged = false;
-      }
-    });
+    this.currentUser$ = this.authService.isUserLogIn();
   }
 
   signOut(): void {
@@ -58,9 +43,6 @@ export class NavbarHeaderComponent implements OnInit, OnDestroy {
   }
 
 
-  ngOnDestroy(): void {
-    this.unsubscribe$.next();
-    this.unsubscribe$.complete();
-  }
+
 
 }
